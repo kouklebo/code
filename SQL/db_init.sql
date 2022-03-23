@@ -1,4 +1,6 @@
 
+show databases;
+
 CREATE TABLE data_beers
 (
     id              INT,
