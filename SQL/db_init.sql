@@ -1,5 +1,5 @@
 
-show databases;
+SHOW databases;
 CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
 CREATE TABLE data_beers
@@ -21,6 +21,12 @@ CREATE TABLE data_beers
     rating          TINYINT(1),
     PRIMARY KEY(id)
 );
+CREATE TABLE credit_Card
+(
+    CC_number VARCHAR(16),
+    CC_expiration_date DATETIME,
+    PRIMARY KEY (CC_number)
+);
 
 CREATE TABLE data_customers
 (
@@ -40,12 +46,7 @@ CREATE TABLE data_customers
 
 );
 
-CREATE TABLE credit_Card
-(
-    CC_number VARCHAR(16),
-    CC_expiration_date DATETIME,
-    PRIMARY KEY (CC_number)
-);
+
 
 CREATE TABLE supplier_order
 (
