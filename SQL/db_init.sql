@@ -1,6 +1,7 @@
 
 show databases;
-
+CREATE DATABASE GLO_2005_projet;
+use GLO_2005_projet;
 CREATE TABLE data_beers
 (
     id              INT,
