@@ -1,7 +1,7 @@
 import pymysql.cursors
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="Password123#@!", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 
@@ -25,19 +25,20 @@ def select_table():
   #  cursor.execute(request)
 
 
-#def verif_mdp(username,mdp):
- #   request= "SELECT pseudo, motdepasse FROM pwd;"
- #   cursor.execute(request)
+def verif_mdp(username,mdp):
+    request= "SELECT pseudo, motdepasse FROM pwd;"
+    cursor.execute(request)
 
- #   list_mdp = [(entry[0],entry[1]) for entry in cursor.fetchall()]
-
-
-    #for entry in cursor.fetchall():
-       # if username==entry[0] and mdp==entry[1]:
-       #     return print("identite_confirme")
-     #   else :
-     #       return print("Compte inconnu")
-   # return list_mdp
+    Verification = -1
+    for entry in cursor.fetchall():
+        if username==entry[0] and mdp==entry[1]:
+            Verification=1
+            print('Verification',Verification)
+        else :
+            Verification=0
+            print('Verification', Verification)
+        return Verification
+    return Verification
 
 
 #def delete_pwd():

@@ -1,12 +1,3 @@
-/*function displayNewTodo(text) {
-    var name_user = document.getElementById("info_user")
-
-    var nom_user = document.createElement("div")
-
-    nom_user.innerHTML = text;
-
-    name_user.appendChild(nom_user);
-}
 
 function onButtonClick() {
     var inputname = document.getElementById("pseudo_user")
@@ -18,26 +9,26 @@ function onButtonClick() {
     inputname.value = ""
 
     postTodo(newname)
+}
 
-    var getUrl = "verif_compte/"
+
+function fetchTodos() {
+    var getUrl = "todos/"
 
     fetch(getUrl).then(function(response) {
         return response.json()
     }).then(function(data) {
-        var verif_compte = data.verif_compte
+        var todos = data.todos
 
-        for(let utilisateur of verif_compte) {
-            displayNewTodo(utilisateur)
+        for(let todo of todos) {
+            displayNewTodo(todo)
         }
     })
 }
 
-*/
 
 
-
-
-
+/*
 function displayNewTable(text) {
     var tableContainer = document.getElementById("table-container")
 
@@ -47,7 +38,7 @@ function displayNewTable(text) {
 
     tableContainer.appendChild(newTableElement);
 }
-
+*/
 
 function fetchTable() {
     var getUrl = "/uneTable/"

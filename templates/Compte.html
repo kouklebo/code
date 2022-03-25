@@ -21,10 +21,20 @@
 <!--
 <input id="username" type="text" placeholder="username"/><br>
 -->
-    <input type="text" placeholder="username" id="pseudo_user" /><br>
-    <input id="password" type="password" placeholder="password"/> <br>
+    <form action ="{{ url_for('compte') }}" method="post">
+        <label for="Pseudo_user">Pseudo</label>
+        <input type="text" name="pseudo_user" id="pseudo_user" placeholder="pseudo" /><br>
 
-    <button type="button" onclick="onButtonClick()">Entrer</button><br><br>
+        <label for="Password">Mot de passse </label>
+        <input type="text" name="password" id="password" placeholder="mot de passe" /><br>
+
+        <input type="submit" value = "Se connecter "/><br><br>
+    </form>
+
+    <!--<input type="text" name="pseudo_user" id="pseudo_user" placeholder="username" /><br>
+    <input id="password" type="password" placeholder="password"/> <br>-->
+
+    <button type="submit" onclick="onButtonClick()">Entrer</button><br><br>
 <!--le type submit permet de soumettre le formulare-->
     <div id="info_user">
         Ici
