@@ -4,14 +4,29 @@ from database import insert_todo, select_todos #,select_table,verif_mdp
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/index/")
 def index():
-    return render_template("index.html")
+    return render_template("Index.html")
 
 
 @app.route("/magasin/")
 def magasin():
-   return render_template("Magasin.html")
+    return render_template("Magasin.html")
+
+
+@app.route("/compte/")
+def index():
+    return render_template("Compte.html")
+
+
+@app.route("/panier/")
+def index():
+    return render_template("Panier.html")
+
+
+@app.route("/contacter-nous/")
+def index():
+    return render_template("Contacter-nous.html")
 
 
 @app.route("/add-todo/", methods=["POST"])

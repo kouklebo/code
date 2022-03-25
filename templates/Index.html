@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Principal</title>
+<link rel="stylesheet" href="/static/style.css">
+    <script src="../static/app.js"></script>
+</head>
+<body onload="fetchTodos()">
+<div class="taskbar">
+  <a class="active" href="index.html">Principal</a>
+  <a href="/magasin/">Magasin</a>
+  <a href="/compte/">Compte</a>
+  <a href=/panier/">Panier</a>
+  <a href="/contacter-nous/">Contacter-nous</a>
+</div>
+<h1>Biere Sans Alcool</h1>
+    <h2>Ta Biere</h2>
+        <h3>Ton Style</h3><br>
+<img src="/static/beerAlltype.jpg" alt="Ton type" style="width:600px;height:500px;">
+    <input id="todo-input" type="text" placeholder="Add something"/>
+    <button type="button" onclick="onButtonClick()">Add todo</button>
+
+    <div id="todos-container">
+
+    </div>
+</body>
+</html>
