@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Compte</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/templates/style.css">
     <script src="../static/app.js"></script>
 </head>
 <body>
-<div class="taskbar">
+    <div class="taskbar">
   <a class="active" href="index.html">Principal</a>
   <a href="Magasin.html">Magasin</a>
   <a href="Compte.html">Compte</a>
   <a href="Panier.html">Panier</a>
   <a href="Contacter-nous.html">Contacter-nous</a>
-</div>
-<h1>Biere Sans Alcool</h1><br>
-<img src="/static/orgeField.jpg" alt="Ton type" style="width:300px;height:250px;"><br>
-<a>Connectez-vous</a><br>
+    </div>
+    <h1>Biere Sans Alcool</h1><br>
+    <img src="/image/orgeField.jpg" alt="Ton type" style="width:300px;height:250px;"><br>
+    <a>Connectez-vous</a><br>
+
+<!--
 <input id="username" type="text" placeholder="username"/><br>
-<input id="password" type="password" placeholder="password"/>
-<button type="button" onclick="">Entrer</button><br><br>
-<a>Creation d'un compte ajouter votre email</a><br>
-<input id="email" type="text" placeholder="email"/>
-<button type="button" onclick="">Entrer</button><br><br>
+-->
+    <input type="text" placeholder="username" id="pseudo_user" /><br>
+    <input id="password" type="password" placeholder="password"/> <br>
+
+    <button type="button" onclick="onButtonClick()">Entrer</button><br><br>
+<!--le type submit permet de soumettre le formulare-->
+    <div id="info_user">
+        Ici
+    </div>
+
+
+    <a>Creation d'un compte ajouter votre email</a><br>
+    <input id="email" type="text" placeholder="email"/>
+    <button type="button" onclick="">Entrer</button><br><br>
 </body>
 </html>

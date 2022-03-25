@@ -1,24 +1,37 @@
 function displayNewTodo(text) {
-    var todosContainer = document.getElementById("todos-container")
+    var name_user = document.getElementById("info_user")
 
-    var newTodoElement = document.createElement("div")
+    var nom_user = document.createElement("div")
 
-    newTodoElement.innerHTML = text;
+    nom_user.innerHTML = text;
 
-    todosContainer.appendChild(newTodoElement);
+    name_user.appendChild(nom_user);
 }
 
 function onButtonClick() {
-    var inputElement = document.getElementById("todo-input")
+    var inputname = document.getElementById("pseudo_user")
 
-    var newTodoText = inputElement.value
+    var newname = inputname.value
 
-    displayNewTodo(newTodoText)
+    displayNewTodo(newname)
 
-    inputElement.value = ""
+    inputname.value = ""
 
-    postTodo(newTodoText)
+    postTodo(newname)
+
+    var getUrl = "verif_compte/"
+
+    fetch(getUrl).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        var verif_compte = data.verif_compte
+
+        for(let utilisateur of verif_compte) {
+            displayNewTodo(utilisateur)
+        }
+    })
 }
+
 
 function postTodo(text) {
    var postUrl = "add-todo"
@@ -51,6 +64,7 @@ function fetchTodos() {
         }
     })
 }
+
 
 
 
