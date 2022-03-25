@@ -33,41 +33,11 @@ function onButtonClick() {
 }
 
 */
-function postTodo(text) {
-   var postUrl = "add-todo"
-
-    fetch(postUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            text: text
-        })
-    }).then(function(response) {
-        return response.json()
-    }).then(function(data) {
-        console.log("worked")
-    })
-}
-
-function fetchTodos() {
-    var getUrl = "todos/"
-
-    fetch(getUrl).then(function(response) {
-        return response.json()
-    }).then(function(data) {
-        var todos = data.todos
-
-        for(let todo of todos) {
-            displayNewTodo(todo)
-        }
-    })
-}
 
 
 
-/*
+
+
 function displayNewTable(text) {
     var tableContainer = document.getElementById("table-container")
 
@@ -77,20 +47,20 @@ function displayNewTable(text) {
 
     tableContainer.appendChild(newTableElement);
 }
-*/
-/*
+
+
 function fetchTable() {
-    var getUrl = "uneTable/"
+    var getUrl = "/uneTable/"
 
     fetch(getUrl).then(function(response) {
         return response.json()
     }).then(function(data) {
 
-        var maTable = data.uneTable
+        var maTable = data.xtable
 
         for(let table of maTable) {
             displayNewTable(table)
         }
     })
 }
-*/
+

@@ -6,27 +6,13 @@ connection = pymysql.connect(
 cursor = connection.cursor()
 
 
-def insert_todo(text):
-    request = """INSERT INTO Todo (text) VALUES ("{}");""".format(text)
+def select_table():
+    request = "SELECT * FROM data_beers;"
     cursor.execute(request)
 
+    table = [entry for entry in cursor.fetchall()]
 
-def select_todos():
-    request = "SELECT text FROM Todo;"
-    cursor.execute(request)
-
-    todos = [entry[0] for entry in cursor.fetchall()]
-
-    return todos
-
-
-#def select_table():
-#    request = "SELECT * FROM data_beers;"
-#    cursor.execute(request)
-#
-#    table = [entry[0] for entry in cursor.fetchall()]
-#
-#    return table
+    return table
 
 
 #def create_pwd():

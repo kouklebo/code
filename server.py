@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import insert_todo, select_todos #,select_table,verif_mdp
+from database import select_table #,verif_mdp, insert_todo, select_todos
 
 app = Flask(__name__)
 
@@ -29,18 +29,6 @@ def contacter():
     return render_template("Contacter-nous.html")
 
 
-@app.route("/add-todo/", methods=["POST"])
-def add_todo():
-    data = request.json
-
-    insert_todo(data["text"])
-
-    response = {
-        "status": 200
-    }
-
-    return jsonify(response)
-
 #@app.route("/verif_compte/",methods=["GET"])
 #def get_compte():
    # verif =verif_mdp()
@@ -51,28 +39,32 @@ def add_todo():
    # return jsonify(response)
 
 
-@app.route("/todos/", methods=["GET"])
-def get_todos():
-    todos = select_todos()
-
-    response = {
-        "status": 200,
-        "todos": todos
-    }
-    return jsonify(response)
-
-#@app.route("/table/", methods=["GET"])
-#def get_table():
-#    table = select_table()
+#@app.route("/todos/", methods=["GET"])
+#def get_todos():
+#    todos = select_todos()
 #
 #    response = {
 #        "status": 200,
-#        "table": table
+#        "todos": todos
 #    }
 #    return jsonify(response)
 
 
+@app.route("/uneTable/", methods=["GET"])
+def get_table():
+    table = select_table()
+
+    response = {
+        "status": 200,
+        "xtable": table
+    }
+    return jsonify(response)
+
+
 if __name__ == "__main__":
+
+    print(select_table())
+
     app.run()
 
 

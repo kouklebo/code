@@ -1,0 +1,61 @@
+#def insert_todo(text):
+#    request = """INSERT INTO Todo (text) VALUES ("{}");""".format(text)
+#    cursor.execute(request)
+
+
+#def select_todos():
+#    request = "SELECT text FROM Todo;"
+#    cursor.execute(request)
+#
+#    todos = [entry[0] for entry in cursor.fetchall()]
+#
+#    return todos
+
+
+#@app.route("/add-todo/", methods=["POST"])
+#def add_todo():
+#    data = request.json
+#
+#    insert_todo(data["text"])
+#
+#    response = {
+#        "status": 200
+#    }
+#
+#    return jsonify(response)
+
+/*
+function postTodo(text) {
+   var postUrl = "add-todo"
+
+    fetch(postUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            text: text
+        })
+    }).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        console.log("worked")
+    })
+}
+*/
+
+/*
+function fetchTodos() {
+    var getUrl = "todos/"
+
+    fetch(getUrl).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        var todos = data.todos
+
+        for(let todo of todos) {
+            displayNewTodo(todo)
+        }
+    })
+}
+*/
