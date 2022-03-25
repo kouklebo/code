@@ -1,4 +1,4 @@
-function displayNewTodo(text) {
+/*function displayNewTodo(text) {
     var name_user = document.getElementById("info_user")
 
     var nom_user = document.createElement("div")
@@ -32,7 +32,7 @@ function onButtonClick() {
     })
 }
 
-
+*/
 function postTodo(text) {
    var postUrl = "add-todo"
 

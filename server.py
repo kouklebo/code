@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import insert_todo, select_todos, select_table
+from database import insert_todo, select_todos, select_table, verif_mdp
 
 app = Flask(__name__)
 
@@ -26,14 +26,14 @@ def add_todo():
 
     return jsonify(response)
 
-@app.route("/verif_compte/",methods=["GET"])
-def get_compte():
-    verif =verif_mdp()
-    response={
-        "status":200,
-        "verif":verif_mdp()
-    }
-    return jsonify(response)
+#@app.route("/verif_compte/",methods=["GET"])
+#def get_compte():
+   # verif =verif_mdp()
+   # response={
+    #    "status":200,
+     #   "verif":verif_mdp()
+   # }
+   # return jsonify(response)
 
 
 @app.route("/todos/", methods=["GET"])
@@ -60,11 +60,4 @@ def get_table():
 if __name__ == "__main__":
     app.run()
 
- #A modifié pour que les informations de l'utilisateur soit une variable globale
-@app.route("/lancerconnexion")
-def lancerconnexion():
-    global VarGlobal
-    VarGlobal["prenom"] = "Bob"
-    VarGlobal["courriel"] = "Bob@ulaval.ca"
-    return render_template('PageTest.html', utilisateur=VarGlobal["prenom"])
 
