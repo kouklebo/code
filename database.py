@@ -20,13 +20,13 @@ def select_todos():
     return todos
 
 
-def select_table():
-    request = "SELECT * FROM data_beers;"
-    cursor.execute(request)
-
-    table = [entry[0] for entry in cursor.fetchall()]
-
-    return table
+#def select_table():
+#    request = "SELECT * FROM data_beers;"
+#    cursor.execute(request)
+#
+#    table = [entry[0] for entry in cursor.fetchall()]
+#
+#    return table
 
 
 def create_pwd():

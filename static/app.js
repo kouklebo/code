@@ -67,7 +67,7 @@ function fetchTodos() {
 
 
 
-
+/*
 function displayNewTable(text) {
     var tableContainer = document.getElementById("table-container")
 
@@ -77,8 +77,9 @@ function displayNewTable(text) {
 
     tableContainer.appendChild(newTableElement);
 }
-
-function fetchTodos() {
+*/
+/*
+function fetchTable() {
     var getUrl = "uneTable/"
 
     fetch(getUrl).then(function(response) {
@@ -92,3 +93,4 @@ function fetchTodos() {
         }
     })
 }
+*/

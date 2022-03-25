@@ -9,9 +9,9 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/magasin/")
-def magasin():
-    return render_template("Magasin.html")
+#@app.route("/magasin/")
+#def magasin():
+#    return render_template("Magasin.html")
 
 
 @app.route("/add-todo/", methods=["POST"])
@@ -46,25 +46,19 @@ def get_todos():
     }
     return jsonify(response)
 
-@app.route("/table/", methods=["GET"])
-def get_table():
-    table = select_table()
-
-    response = {
-        "status": 200,
-        "table": table
-    }
-    return jsonify(response)
+#@app.route("/table/", methods=["GET"])
+#def get_table():
+#    table = select_table()
+#
+#    response = {
+#        "status": 200,
+#        "table": table
+#    }
+#    return jsonify(response)
 
 
 if __name__ == "__main__":
     app.run()
 
- #A modifié pour que les informations de l'utilisateur soit une variable globale
-@app.route("/lancerconnexion")
-def lancerconnexion():
-    global VarGlobal
-    VarGlobal["prenom"] = "Bob"
-    VarGlobal["courriel"] = "Bob@ulaval.ca"
-    return render_template('PageTest.html', utilisateur=VarGlobal["prenom"])
+
 
