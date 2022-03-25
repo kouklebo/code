@@ -54,5 +54,27 @@ function fetchTodos() {
 
 
 
+function displayNewTable(text) {
+    var tableContainer = document.getElementById("table-container")
 
+    var newTableElement = document.createElement("div")
 
+    newTableElement.innerHTML = text;
+
+    tableContainer.appendChild(newTableElement);
+}
+
+function fetchTodos() {
+    var getUrl = "uneTable/"
+
+    fetch(getUrl).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+
+        var maTable = data.uneTable
+
+        for(let table of maTable) {
+            displayNewTable(table)
+        }
+    })
+}
