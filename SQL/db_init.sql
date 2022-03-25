@@ -13,7 +13,7 @@ CREATE TABLE  IF NOT EXISTS data_beers
 (
     id              INT,
     Name            VARCHAR(100),
-    Brewery         VARCHAR(100),
+    Brewery         VARCHAR(100), 
     Style           VARCHAR(100),
     Alcohol_content FLOAT(1),
     Calories        VARCHAR(100),
@@ -125,6 +125,11 @@ CREATE TRIGGER updateBeerAvgRatingAfterUpdate AFTER UPDATE ON rating
     SET rating = (select AVG(rating) FROM rating R WHERE R.Beer_id = NEW.Beer_id)
     WHERE id = NEW.Beer_id;
 
-#CREATE TRIGGER updateQuanityAfterUpdtate AFTER UPDATE ON supplier_order
-#    FOR EACH ROW UPDATE stock
-#    SET Quantity = (select )
+CREATE TRIGGER updateQuantityAfterUpdate AFTER INSERT ON order_item
+    FOR EACH ROW UPDATE stock
+    SET stock.Quantity = stock.Quantity - (SELECT Quantity FROM order_item O WHERE O.item_id = NEW.item_id);
+
+CREATE TRIGGER updateQuantityAfterUpdate2 AFTER INSERT ON supplier_order
+    FOR EACH ROW UPDATE stock
+    SET stock.Quantity = stock.Quantity - (SELECT Quantity FROM supplier_order S WHERE S.Product_id = NEW.Product_id);
+
