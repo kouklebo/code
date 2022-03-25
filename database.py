@@ -60,10 +60,9 @@ def select_todos():
 
 
 if __name__ == '__main__':
-    # create_table = "CREATE TABLE Todo(id integer AUTO_INCREMENT,"\
-    #  text varchar(400), PRIMARY KEY(id))"
-    # cursor.execute(create_table)
+    create_table = "CREATE TABLE Todo(id integer AUTO_INCREMENT text varchar(400), PRIMARY KEY(id))"
+    cursor.execute(create_table)
     #delete_pwd()
     #create_pwd()
     #insert_pwd("Jennifer1","mdp1")
-    print(verif_mdp('Jennifer1',"mdp1"))
+    #print(verif_mdp('Jennifer1',"mdp1"))
