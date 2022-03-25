@@ -9,6 +9,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/magasin/")
+def magasin():
+    return render_template("Magasin.html")
+
+
 @app.route("/add-todo/", methods=["POST"])
 def add_todo():
     data = request.json

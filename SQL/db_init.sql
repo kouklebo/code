@@ -2,6 +2,7 @@
 SHOW DATABASES;
 CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
+SHOW TABLES;
 
 CREATE TABLE data_beers
 (
