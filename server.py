@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import insert_todo, select_todos,verif_mdp
+from database import insert_todo, select_todos, select_table
 
 app = Flask(__name__)
 
@@ -7,6 +7,11 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/magasin/")
+def magasin():
+    return render_template("Magasin.html")
 
 
 @app.route("/add-todo/", methods=["POST"])
@@ -39,7 +44,16 @@ def get_todos():
         "status": 200,
         "todos": todos
     }
+    return jsonify(response)
 
+@app.route("/table/", methods=["GET"])
+def get_table():
+    table = select_table()
+
+    response = {
+        "status": 200,
+        "table": table
+    }
     return jsonify(response)
 
 
