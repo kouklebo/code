@@ -4,7 +4,7 @@ CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
 SHOW TABLES;
 
-CREATE TABLE data_beers
+CREATE TABLE  IF NOT EXISTS data_beers
 (
     id              INT,
     Name            VARCHAR(100),
@@ -24,14 +24,14 @@ CREATE TABLE data_beers
     PRIMARY KEY(id)
 );
 
-CREATE TABLE credit_Card
+CREATE TABLE IF NOT EXISTS credit_Card
 (
     CC_number VARCHAR(16),
     CC_expiration_date DATETIME,
     PRIMARY KEY (CC_number)
 );
 
-CREATE TABLE data_customers
+CREATE TABLE IF NOT EXISTS data_customers
 (
     customer_id              INT,
     last_name       VARCHAR(500),
@@ -50,7 +50,7 @@ CREATE TABLE data_customers
 );
 
 
-CREATE TABLE supplier_order
+CREATE TABLE IF NOT EXISTS supplier_order
 (
     id INT,
     delivery_date DATE,
@@ -63,7 +63,7 @@ CREATE TABLE supplier_order
 
 );
 
-CREATE TABLE customer_Order
+CREATE TABLE IF NOT EXISTS customer_Order
 (
     Order_id INT,
     Client_id INT,
@@ -74,7 +74,7 @@ CREATE TABLE customer_Order
         REFERENCES data_customers(customer_id)
 );
 
-CREATE TABLE order_item
+CREATE TABLE IF NOT EXISTS order_item
 (
     item_id INT,
     Order_id INT,
@@ -88,7 +88,7 @@ CREATE TABLE order_item
 
 );
 
-CREATE TABLE stock
+CREATE TABLE IF NOT EXISTS stock
 (
     Beer_id INT,
     Quantity INT,
@@ -96,7 +96,7 @@ CREATE TABLE stock
         REFERENCES data_beers(id)
 );
 
-CREATE TABLE rating
+CREATE TABLE IF NOT EXISTS rating
 (
     Beer_id INT,
     Customer_id INT,
@@ -119,3 +119,7 @@ CREATE TRIGGER updateBeerAvgRatingAfterUpdate AFTER UPDATE ON rating
     FOR EACH ROW UPDATE data_beers
     SET rating = (select AVG(rating) FROM rating R WHERE R.Beer_id = NEW.Beer_id)
     WHERE id = NEW.Beer_id;
+
+CREATE TRIGGER updateQuanityAfterUpdtate AFTER UPDATE ON supplier_order
+    FOR EACH ROW UPDATE stock
+    SET Quantity = (select )
