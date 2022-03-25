@@ -4,7 +4,7 @@ from database import insert_todo, select_todos #,select_table,verif_mdp
 app = Flask(__name__)
 
 
-@app.route("/index/")
+@app.route("/")
 def index():
     return render_template("Index.html")
 
@@ -15,17 +15,17 @@ def magasin():
 
 
 @app.route("/compte/")
-def index():
+def compte():
     return render_template("Compte.html")
 
 
 @app.route("/panier/")
-def index():
+def panier():
     return render_template("Panier.html")
 
 
 @app.route("/contacter-nous/")
-def index():
+def contacter():
     return render_template("Contacter-nous.html")
 
 
