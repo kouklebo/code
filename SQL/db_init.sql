@@ -4,6 +4,10 @@ DROP DATABASE GLO_2005_projet;
 CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
 SHOW TABLES;
+SELECT * FROM data_beers;
+
+INSERT INTO data_beers (id,Name,Brewery,Style,Alcohol_content,Calories,Carbohydrates,Sugar,Ingredients,Country,Dispense,Comments,Price,release_date,rating)
+VALUES (1, "Wet Hopped Pilsner", "Insel-Brauerei", "pilsner",0.005, "106 (per 330ml bottle)","21g (per 330ml bottle)","1.5g (per 330ml bottle)","water, barley, wheat, hops, yeast", "Germany", "bottle (330ml)","The main thing the hops contribute to is the bitterness, which grows during each sip until item s almost lip puckering. Yet item s balanced with those other, sweeter flavours.",4.99,2017,10);
 
 CREATE TABLE  IF NOT EXISTS data_beers
 (
@@ -121,6 +125,6 @@ CREATE TRIGGER updateBeerAvgRatingAfterUpdate AFTER UPDATE ON rating
     SET rating = (select AVG(rating) FROM rating R WHERE R.Beer_id = NEW.Beer_id)
     WHERE id = NEW.Beer_id;
 
-CREATE TRIGGER updateQuanityAfterUpdtate AFTER UPDATE ON supplier_order
-    FOR EACH ROW UPDATE stock
-    SET Quantity = (select )
+#CREATE TRIGGER updateQuanityAfterUpdtate AFTER UPDATE ON supplier_order
+#    FOR EACH ROW UPDATE stock
+#    SET Quantity = (select )
