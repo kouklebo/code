@@ -36,6 +36,7 @@ def get_todos():
     }
     return jsonify(response)
 
+
 @app.route("/table/", methods=["GET"])
 def get_table():
     table = select_table()
