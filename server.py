@@ -46,15 +46,15 @@ def get_todos():
     }
     return jsonify(response)
 
-@app.route("/table/", methods=["GET"])
-def get_table():
-    table = select_table()
-
-    response = {
-        "status": 200,
-        "table": table
-    }
-    return jsonify(response)
+#@app.route("/table/", methods=["GET"])
+#def get_table():
+#    table = select_table()
+#
+#    response = {
+#        "status": 200,
+#        "table": table
+#    }
+#    return jsonify(response)
 
 
 if __name__ == "__main__":
