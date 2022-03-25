@@ -1,7 +1,7 @@
 import pymysql.cursors
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="Password123#@", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 
@@ -61,7 +61,7 @@ def select_todos():
 
 if __name__ == '__main__':
     create_table = "CREATE TABLE Todo(id integer AUTO_INCREMENT text varchar(400), PRIMARY KEY(id))"
-    cursor.execute(create_table)
+    #cursor.execute(create_table)
     #delete_pwd()
     #create_pwd()
     #insert_pwd("Jennifer1","mdp1")
