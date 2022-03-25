@@ -1,7 +1,7 @@
 import pymysql.cursors
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="Password123#@", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 
@@ -29,21 +29,21 @@ def select_todos():
 #    return table
 
 
-def create_pwd():
-    request = "CREATE TABLE Pwd(pseudo VARCHAR(100),motdepasse VARCHAR(100),PRIMARY KEY (pseudo))"
-    cursor.execute(request)
+#def create_pwd():
+#    request = "CREATE TABLE Pwd(pseudo VARCHAR(100),motdepasse VARCHAR(100),PRIMARY KEY (pseudo))"
+#    cursor.execute(request)
 
 
-def insert_pwd(pseudo,motdepasse):
-    request = """INSERT INTO pwd (pseudo,motdepasse) VALUES ("{}","{}");""".format(pseudo,motdepasse)
-    cursor.execute(request)
+#def insert_pwd(pseudo,motdepasse):
+ #   request = """INSERT INTO pwd (pseudo,motdepasse) VALUES ("{}","{}");""".format(pseudo,motdepasse)
+  #  cursor.execute(request)
 
 
-def verif_mdp(username,mdp):
-    request= "SELECT pseudo, motdepasse FROM pwd;"
-    cursor.execute(request)
+#def verif_mdp(username,mdp):
+ #   request= "SELECT pseudo, motdepasse FROM pwd;"
+ #   cursor.execute(request)
 
-    list_mdp = [(entry[0],entry[1]) for entry in cursor.fetchall()]
+ #   list_mdp = [(entry[0],entry[1]) for entry in cursor.fetchall()]
 
 
     #for entry in cursor.fetchall():
@@ -51,12 +51,12 @@ def verif_mdp(username,mdp):
        #     return print("identite_confirme")
      #   else :
      #       return print("Compte inconnu")
-    return list_mdp
+   # return list_mdp
 
 
-def delete_pwd():
-    request = "DROP TABLE Pwd"
-    cursor.execute(request)
+#def delete_pwd():
+  #  request = "DROP TABLE Pwd"
+   # cursor.execute(request)
 
 
 if __name__ == '__main__':

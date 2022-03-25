@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import insert_todo, select_todos, select_table
+from database import insert_todo, select_todos, select_table, verif_mdp
 
 app = Flask(__name__)
 
@@ -26,14 +26,14 @@ def add_todo():
 
     return jsonify(response)
 
-@app.route("/verif_compte/",methods=["GET"])
-def get_compte():
-    verif =verif_mdp()
-    response={
-        "status":200,
-        "verif":verif_mdp()
-    }
-    return jsonify(response)
+#@app.route("/verif_compte/",methods=["GET"])
+#def get_compte():
+   # verif =verif_mdp()
+   # response={
+    #    "status":200,
+     #   "verif":verif_mdp()
+   # }
+   # return jsonify(response)
 
 
 @app.route("/todos/", methods=["GET"])
@@ -46,15 +46,15 @@ def get_todos():
     }
     return jsonify(response)
 
-#@app.route("/table/", methods=["GET"])
-#def get_table():
-#    table = select_table()
-#
-#    response = {
-#        "status": 200,
-#        "table": table
-#    }
-#    return jsonify(response)
+@app.route("/table/", methods=["GET"])
+def get_table():
+    table = select_table()
+
+    response = {
+        "status": 200,
+        "table": table
+    }
+    return jsonify(response)
 
 
 if __name__ == "__main__":
