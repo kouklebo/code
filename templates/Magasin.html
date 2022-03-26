@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="../static/app.js"></script>
 </head>
-<body>
+<body onload="fetchTable()">
 <div class="taskbar">
   <a class="active" href="/">Principal</a>
   <a href="/magasin/">Magasin</a>
@@ -29,8 +29,9 @@
  <label for="javascript">Noire</label><br>
  <input type="radio" id="noire" name="typeBeer" value="autres">
  <label for="javascript">Autres</label><br>
+</form>
 
-    <div id="table-container">
+    <div id="table-container" >
 
     </div>
 

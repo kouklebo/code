@@ -28,7 +28,7 @@ function fetchTodos() {
 
 
 
-/*
+
 function displayNewTable(text) {
     var tableContainer = document.getElementById("table-container")
 
@@ -38,19 +38,18 @@ function displayNewTable(text) {
 
     tableContainer.appendChild(newTableElement);
 }
-*/
+
 
 function fetchTable() {
-    var getUrl = "/uneTable/"
+    var getUrl = "/tableMagasin/"
 
     fetch(getUrl).then(function(response) {
         return response.json()
     }).then(function(data) {
+        var tableMagasin = data.VectorMagasin
 
-        var maTable = data.xtable
-
-        for(let table of maTable) {
-            displayNewTable(table)
+        for(let maTable of tableMagasin) {
+            displayNewTable(maTable)
         }
     })
 }

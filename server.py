@@ -9,7 +9,7 @@ def index():
     return render_template("Index.html")
 
 
-@app.route("/magasin/")
+@app.route("/magasin/", methods=["GET"])
 def magasin():
     return render_template("Magasin.html")
 
@@ -40,13 +40,12 @@ def contacter():
     return render_template("Contacter-nous.html")
 
 
-@app.route("/uneTable/", methods=["GET"])
+@app.route("/tableMagasin/", methods=["GET"])
 def get_table():
-    table = select_table()
-
+    tableMagasin = select_table()
     response = {
         "status": 200,
-        "xtable": table
+        "VectorMagasin": tableMagasin
     }
     return jsonify(response)
 
