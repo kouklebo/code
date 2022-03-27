@@ -28,18 +28,19 @@ function fetchTodos() {
 
 
 
-function displayNewTable(text) {
+function displayNewTable(text,id) {
     var tableContainer = document.getElementById("table-container")
 
-    tableContainer.onclick = function()
-        {
-            tableContainer.style = "Color: red"
 
-        }
-
-    var newTableElement = document.createElement("div")
+    var newTableElement = document.createElement("div",id)
 
     newTableElement.innerHTML = text
+
+        newTableElement.onclick = function()
+        {
+            newTableElement.style = "Color: red"
+
+        }
 
     tableContainer.appendChild(newTableElement)
 }
@@ -54,7 +55,7 @@ function fetchTable() {
         var tableMagasin = data.VectorMagasin
 
         for(let maTable of tableMagasin) {
-            displayNewTable(maTable)
+            displayNewTable(maTable,maTable[0])
         }
     })
 }
