@@ -26,23 +26,29 @@ function fetchTodos() {
     })
 }
 
+function reaction(){
+    var tableContainer = document.getElementById("oneTable-container")
 
+    var newTableElement = document.createElement("div")
+
+    newTableElement.innerHTML = 'SA fonctionne vraiment WOW such skills  such power woaw!!'
+
+    tableContainer.appendChild(newTableElement)
+}
 
 function displayNewTable(text,id) {
     var tableContainer = document.getElementById("table-container")
 
-
-    var newTableElement = document.createElement("div",id)
+    var newTableElement = document.createElement("div")
 
     newTableElement.innerHTML = text
-
-        newTableElement.onclick = function()
-        {
-            newTableElement.style = "Color: red"
-
-        }
-
+    newTableElement.id = id
+    newTableElement.onclick = function (){
+        newTableElement.style.color = "red"
+        document.getElementById("oneTable-container").appendChild(newTableElement)
+    }
     tableContainer.appendChild(newTableElement)
+
 }
 
 
@@ -60,9 +66,6 @@ function fetchTable() {
     })
 }
 
-function displayNewWindow(){
-
-}
 
 
 

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="../static/app.js"></script>
 </head>
-    <body>
+    <body onload="reaction()">
     <div class="taskbar">
   <a class="active" href="/">Principal</a>
   <a href="/magasin/">Magasin</a>
@@ -17,12 +17,11 @@
     <label for="quantity">Selectionner la quantitee</label> <br>
     <input type="number" id="quantity" name="quantity" min="1" max="99"><br>
 
-    <div id="table-container" >
+    <div id="oneTable-container">
 
     </div><br>
-    <form action="/magasin/">
-    <button type="submit"  value="Submit">Ajouter au Panier </button><br>
-    </form>
+
+    <button type="submit" onclick="location.href='/magasin/';"  value="Submit">Ajouter au Panier </button><br>
     <button type="cancel" onclick="location.href='/magasin/';" value="Cancel">Cancel </button><br>
 
 
