@@ -21,15 +21,7 @@ CREATE TABLE  IF NOT EXISTS data_beers
     Brewery         VARCHAR(100), 
     Style           VARCHAR(100),
     Alcohol_content FLOAT(1),
-    Calories        VARCHAR(100),
-    Carbohydrates   VARCHAR(100),
-    Sugar           VARCHAR(100),
-    Ingredients     varchar(300),
-    Country         VARCHAR(100),
-    Dispense        VARCHAR(100),
-    Comments        VARCHAR(500),
     Price           FLOAT(2),
-    release_date    YEAR,
     rating          TINYINT(1),
     PRIMARY KEY(id)
 );
@@ -43,14 +35,12 @@ CREATE TABLE IF NOT EXISTS credit_Card
 
 CREATE TABLE IF NOT EXISTS data_customers
 (
-    customer_id              INT,
+    Pseudo             INT,
     last_name       VARCHAR(500),
     first_name      VARCHAR(500),
-    Password        VARCHAR(500),
     birth_date      DATE,
     email           VARCHAR(500),
     phone_number    DECIMAL,
-    Fidelity_point  INT,
     Billing_address VARCHAR(500),
     Credit_card VARCHAR(16),
     PRIMARY KEY(customer_id),
@@ -58,7 +48,6 @@ CREATE TABLE IF NOT EXISTS data_customers
         REFERENCES credit_Card (CC_number)
 
 );
-
 
 CREATE TABLE IF NOT EXISTS supplier_order
 (
@@ -95,7 +84,6 @@ CREATE TABLE IF NOT EXISTS order_item
         REFERENCES data_beers (id),
     FOREIGN KEY (Order_id)
         REFERENCES customer_Order(Order_id)
-
 );
 
 CREATE TABLE IF NOT EXISTS stock
