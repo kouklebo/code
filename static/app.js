@@ -28,9 +28,14 @@ function fetchTodos() {
 
 
 
-
 function displayNewTable(text) {
     var tableContainer = document.getElementById("table-container")
+
+    tableContainer.onclick = function()
+        {
+            tableContainer.style = "Color: red";
+
+        }
 
     var newTableElement = document.createElement("div")
 
@@ -53,4 +58,11 @@ function fetchTable() {
         }
     })
 }
+
+function displayNewWindow(){
+
+}
+
+
+
 

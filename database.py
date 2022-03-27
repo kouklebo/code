@@ -1,7 +1,7 @@
 import pymysql.cursors
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="Password123#@!", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 

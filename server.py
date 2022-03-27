@@ -50,5 +50,9 @@ def get_table():
     return jsonify(response)
 
 
+@app.route("/Achat/")
+def achat():
+    return render_template("Achat.html")
+
 if __name__ == "__main__":
     app.run()
