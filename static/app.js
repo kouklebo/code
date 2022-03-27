@@ -33,15 +33,15 @@ function displayNewTable(text) {
 
     tableContainer.onclick = function()
         {
-            tableContainer.style = "Color: red";
+            tableContainer.style = "Color: red"
 
         }
 
     var newTableElement = document.createElement("div")
 
-    newTableElement.innerHTML = text;
+    newTableElement.innerHTML = text
 
-    tableContainer.appendChild(newTableElement);
+    tableContainer.appendChild(newTableElement)
 }
 
 

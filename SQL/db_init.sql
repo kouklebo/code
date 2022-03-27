@@ -10,6 +10,10 @@ SELECT * FROM data_customers;
 INSERT INTO data_beers (id,Name,Brewery,Style,Alcohol_content,Calories,Carbohydrates,Sugar,Ingredients,Country,Dispense,Comments,Price,release_date,rating)
 VALUES (1, "Wet Hopped Pilsner", "Insel-Brauerei", "pilsner",0.005, "106 (per 330ml bottle)","21g (per 330ml bottle)","1.5g (per 330ml bottle)","water, barley, wheat, hops, yeast", "Germany", "bottle (330ml)","The main thing the hops contribute to is the bitterness, which grows during each sip until item s almost lip puckering. Yet item s balanced with those other, sweeter flavours.",4.99,2017,10);
 
+INSERT INTO data_beers (id,Name,Brewery,Style,Alcohol_content,Calories,Carbohydrates,Sugar,Ingredients,Country,Dispense,Comments,Price,release_date,rating)
+VALUES (2, "Fin du monde", "double", "Autre",0.005, "106 (per 330ml bottle)","21g (per 330ml bottle)","1.5g (per 330ml bottle)","water, barley, wheat, hops, yeast", "Quebec", "bottle (330ml)","The main thing the hops contribute to is the bitterness, which grows during each sip until item s almost lip puckering. Yet item s balanced with those other, sweeter flavours.",4.99,2017,10);
+
+
 CREATE TABLE  IF NOT EXISTS data_beers
 (
     id              INT,
