@@ -8,10 +8,10 @@ SELECT * FROM data_beers;
 SELECT * FROM order_item;
 SELECT * FROM data_customers;
 INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (1,"Wet Hopped Pilsner","Insel-Brauerei","Other",0.05,4.99,10);
+VALUES (1,'Wet Hopped Pilsner','Insel-Brauerei','Other',0.05,4.99,10);
 
 INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (2,"Lemongrass Lager","Toast and Teapigs","lager",0.005,9.99,7);
+VALUES (2,'Lemongrass Lager','Toast and Teapigs','lager',0.005,9.99,7);
 
 CREATE TABLE  IF NOT EXISTS data_beers
 (
