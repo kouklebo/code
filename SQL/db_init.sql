@@ -22,7 +22,7 @@ CREATE TABLE  IF NOT EXISTS data_beers
     Style           VARCHAR(100),
     Alcohol_content FLOAT(1),
     Price           FLOAT(2),
-    rating          TINYINT(1),
+    rating          INT,
     PRIMARY KEY(id)
 );
 SELECT * FROM credit_Card;
