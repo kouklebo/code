@@ -26,29 +26,33 @@ function fetchTodos() {
     })
 }
 
+
 function reaction(){
     var tableContainer = document.getElementById("oneTable-container")
 
     var newTableElement = document.createElement("div")
 
-    newTableElement.innerHTML = 'SA fonctionne vraiment WOW such skills  such power woaw!!'
+    newTableElement.innerHTML = sessionStorage.getItem("beerChoice")
 
     tableContainer.appendChild(newTableElement)
 }
+
 
 function displayNewTable(text,id) {
     var tableContainer = document.getElementById("table-container")
 
     var newTableElement = document.createElement("div")
 
-    newTableElement.innerHTML = text
-    newTableElement.id = id
     newTableElement.onclick = function (){
-        newTableElement.style.color = "red"
-        document.getElementById("oneTable-container").appendChild(newTableElement)
+        newTableElement.style.color="red"
+        tableContainer.id = id
+        tableContainer.accessKey=text
+        sessionStorage.setItem("beerChoice", tableContainer.accessKey)
+        sessionStorage.setItem("beerId", tableContainer.id)
     }
-    tableContainer.appendChild(newTableElement)
 
+    newTableElement.innerHTML = text
+    tableContainer.appendChild(newTableElement)
 }
 
 
