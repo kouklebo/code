@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import verif_mdp, select_table
+from database import verif_mdp, select_table,ajout_compte
 
 app = Flask(__name__)
 
@@ -19,13 +19,36 @@ def compte():
     if request.method == 'POST':
         pseudo_user = request.form['pseudo_user']
         password = request.form['password']
-        print("password:",password, pseudo_user)
+        #print("password:",password, pseudo_user)
         Verif = verif_mdp(pseudo_user,password)
-        print("Verif:", Verif)
+        #print("Verif:", Verif)
         if Verif == 1:
             return 'Compte existant'
         else:
             return 'Compte inconnu'
+    else:
+        return render_template("Compte.html")
+
+@app.route("/compte/", methods=['GET', 'POST'])
+def creation_compte():
+    if request.method == 'POST':
+        nom_user = request.form['nom_user']
+        prenom_user = request.form['prenom_user']
+        naissance_user = request.form['naissance_user']
+        pseudo_user = request.form['pseudo_user']
+        courriel = request.form['courriel']
+        num_telephone = request.form['num_telephone']
+        adresse = request.form['adresse']
+        num_carte = request.form['num_carte']
+        #print("password:",password, pseudo_user)
+        #passwrd= creation_mdp(pseudo_user)
+        Ajout = ajout_compte(pseudo_user,nom_user,prenom_user,naissance_user,courriel,num_telephone,adresse)
+        #print("Verif:", Verif)
+        #if Ajout == 1 and passwrd==1:
+        if Ajout == 1:
+            return 'Compte Crée'
+        else:
+            return 'Une erreure est survenue.'
     else:
         return render_template("Compte.html")
 

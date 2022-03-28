@@ -1,7 +1,7 @@
 import pymysql.cursors
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="Password123#@!", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 
@@ -40,6 +40,19 @@ def verif_mdp(username,mdp):
         return Verification
     return Verification
 
+def ajout_compte(pseudo_user, name_user, firt_name_user, birth_date_user, email_user, phone_number_user, Billing_address,Credit_card):
+    request= "INSERT INTO data_customers (pseudo, last_name, first_name, birth_date, email, phone_number, Billing_address,Credit_card) VALUES (3, 'name_user', 'firt_name_user', 20230608, 'email_user', 1234567, 'Billing_address',1234567890);"
+    cursor.execute(request)
+    Verification = 1
+    print(Verification)
+    return Verification
+
+def passwrd(pseudo_user):
+    request= "INSERT INTO pwd (pseudo,motdepasse) VALUES (pseudo,mdp2)"
+    cursor.execute(request)
+    Verification = 1
+    return Verification
+
 
 #def delete_pwd():
   #  request = "DROP TABLE Pwd"
@@ -53,3 +66,4 @@ if __name__ == '__main__':
     #create_pwd()
     #insert_pwd("Jennifer1","mdp1")
     #print(verif_mdp('Jennifer1',"mdp1"))
+    print(ajout_compte(3,'Dupont', 'Jean',19780106,'jean.dupont@ulaval.ca',1234567,'20 rue St Joseph','1234567890'));
