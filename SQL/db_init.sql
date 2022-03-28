@@ -16,7 +16,7 @@ VALUES (2,'Lemongrass Lager','Toast and Teapigs','lager',0.005,9.99,7);
 
 CREATE TABLE  IF NOT EXISTS data_beers
 (
-    id              INT,
+    id              INT AUTO_INCREMENT,
     Name            VARCHAR(100),
     Brewery         VARCHAR(100), 
     Style           VARCHAR(100),
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS data_customers
 
 CREATE TABLE IF NOT EXISTS supplier_order
 (
-    id INT,
+    id INT AUTO_INCREMENT,
     delivery_date DATE,
     Product_id INT,
     Cost FLOAT(2),
@@ -63,10 +63,11 @@ CREATE TABLE IF NOT EXISTS supplier_order
         REFERENCES data_beers (id)
 
 );
+
 ALTER TABLE customer_Order CHANGE Client_id Client_id VARCHAR(50);
 CREATE TABLE IF NOT EXISTS customer_Order
 (
-    Order_id INT,
+    Order_id INT AUTO_INCREMENT,
     Client_id VARCHAR(50),
     Total_price FLOAT(2),
     Order_status ENUM('Processing', 'Preparing', 'Ready to Pick Up', 'Picked Up'),
@@ -77,7 +78,7 @@ CREATE TABLE IF NOT EXISTS customer_Order
 
 CREATE TABLE IF NOT EXISTS order_item
 (
-    item_id INT,
+    item_id INT AUTO_INCREMENT,
     Order_id INT,
     Beer_id INT,
     Quantity INT,
