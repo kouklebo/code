@@ -69,11 +69,13 @@ CREATE TABLE IF NOT EXISTS customer_Order
 (
     Order_id INT AUTO_INCREMENT,
     Client_id VARCHAR(50),
-    Total_price FLOAT(2),
-    Order_status ENUM('Processing', 'Preparing', 'Ready to Pick Up', 'Picked Up'),
+    Beer_id INT,
+    Quantity INT,
     PRIMARY KEY (Order_id),
     FOREIGN KEY (Client_id)
-        REFERENCES data_customers(pseudo)
+        REFERENCES data_customers(pseudo),
+    FOREIGN KEY (Beer_id)
+        REFERENCES data_beers(id)
 );
 
 CREATE TABLE IF NOT EXISTS order_item
@@ -82,6 +84,7 @@ CREATE TABLE IF NOT EXISTS order_item
     Order_id INT,
     Beer_id INT,
     Quantity INT,
+    Total_price FLOAT(2),
     PRIMARY KEY (item_id),
     FOREIGN KEY (Beer_id)
         REFERENCES data_beers (id),
