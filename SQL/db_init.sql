@@ -125,9 +125,9 @@ CREATE TRIGGER updateBeerAvgRatingAfterUpdate AFTER UPDATE ON rating
     SET rating = (select AVG(rating) FROM rating R WHERE R.Beer_id = NEW.Beer_id)
     WHERE id = NEW.Beer_id;
 
-CREATE TRIGGER updateQuantityAfterUpdate AFTER INSERT ON order_item
+CREATE TRIGGER updateQuantityAfterUpdate AFTER INSERT ON customer_Order
     FOR EACH ROW UPDATE stock
-    SET stock.Quantity = stock.Quantity - (SELECT Quantity FROM order_item O WHERE O.item_id = NEW.item_id);
+    SET stock.Quantity = stock.Quantity - (SELECT Quantity FROM customer_Order C WHERE C.Beer_id = NEW.Beer_id);
 
 CREATE TRIGGER updateQuantityAfterUpdate2 AFTER INSERT ON supplier_order
     FOR EACH ROW UPDATE stock
