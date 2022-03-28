@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS data_customers
     PRIMARY KEY(Pseudo),
     FOREIGN KEY(Credit_card)
         REFERENCES credit_Card (CC_number)
-
 );
 
 CREATE TABLE IF NOT EXISTS supplier_order
@@ -61,7 +60,6 @@ CREATE TABLE IF NOT EXISTS supplier_order
     PRIMARY KEY (id),
     FOREIGN KEY (Product_id)
         REFERENCES data_beers (id)
-
 );
 
 ALTER TABLE customer_Order CHANGE Client_id Client_id VARCHAR(50);
@@ -81,7 +79,7 @@ CREATE TABLE IF NOT EXISTS customer_Order
 
 CREATE TABLE IF NOT EXISTS order_item
 (
-    Client_id INT,
+    Client_id VARCHAR(50),
     Order_id INT,
     Beer_id INT,
     Quantity INT,
@@ -106,7 +104,7 @@ CREATE TABLE IF NOT EXISTS stock
 CREATE TABLE IF NOT EXISTS rating
 (
     Beer_id INT,
-    Customer_id INT,
+    Customer_id VARCHAR(50),
     rating TINYINT,
     PRIMARY KEY (Beer_id, Customer_id),
     FOREIGN KEY (Beer_id)
