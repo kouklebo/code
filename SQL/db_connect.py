@@ -50,7 +50,8 @@ CreditCardRequest = "LOAD DATA INFILE %s INTO TABLE credit_card " \
 
 data_beersFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_beers.csv")
 data_customerFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_customers.csv")
-data_CreditCardFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CreditCard.csv")
+CreditCardFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CreditCard.csv")
 
 mycursor.execute(data_beersRequest, data_beersFile)
 mycursor.execute(data_customersRequest, data_customerFile)
+mycursor.execute(CreditCardRequest, CreditCardFile)
