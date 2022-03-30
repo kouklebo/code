@@ -14,6 +14,10 @@
       <a href="/panier/">Panier</a>
       <a href="/contacter-nous/">Contacter-nous</a>
     </div>
+    <!--information utilisateur en variable global-->
+    <div id="info_user">
+        <p>Bonjour, {{utilisateur}}</p>
+    </div>
     <h1>Biere Sans Alcool</h1><br>
     <img src="/static/orgeField.jpg" alt="Ton type" style="width:300px;height:250px;"><br>
     <a>Connectez-vous</a><br>
@@ -28,18 +32,7 @@
 
         <input type="submit" value = "Se connecter "/><br><br>
     </form>
-    <!-- <button type="submit" onclick="onButtonClick()">Entrer</button><br><br> -->
-<!--le type submit permet de soumettre le formulaire-->
-<!--information utilisateur en variable global-->
-    <div id="info_user">
-        Ici
-        <p>Bonjour, {{utilisateur}}.</p>
-    </div>
-<!-- Ancien code pour créer un compte
-    <a>Creation d'un compte ajouter votre email</a><br>
-    <input id="email" type="text" placeholder="email"/>
-    <button type="button" onclick="">Entrer</button><br><br>
--->
+
 
 <form action ="{{ url_for('creation_compte') }}" method="post">
         <label for="Nom">Nom</label>
