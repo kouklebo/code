@@ -3,6 +3,7 @@ from database import verif_mdp, select_table,ajout_compte
 
 app = Flask(__name__)
 
+VarGlobal = {}
 
 @app.route("/")
 def index():
@@ -16,14 +17,16 @@ def magasin():
 
 @app.route("/compte/", methods=['GET', 'POST'])
 def compte():
+    global VarGlobal
     if request.method == 'POST':
         pseudo_user = request.form['pseudo_user']
         password = request.form['password']
+        VarGlobal["pseudo"] = pseudo_user
         #print("password:",password, pseudo_user)
         Verif = verif_mdp(pseudo_user,password)
         #print("Verif:", Verif)
         if Verif == 1:
-            return 'Compte existant'
+            return render_template("Compte.html",utilisateur=VarGlobal["pseudo"])
         else:
             return 'Compte inconnu'
     else:
