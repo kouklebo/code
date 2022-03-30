@@ -136,3 +136,5 @@ CREATE TRIGGER updateQuantityAfterUpdate2 AFTER INSERT ON supplier_order
 SELECT * FROM data_customers;
 SELECT * FROM credit_Card;
 
+
+

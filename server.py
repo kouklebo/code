@@ -29,7 +29,7 @@ def compte():
     else:
         return render_template("Compte.html")
 
-@app.route("/compte/", methods=['GET', 'POST'])
+@app.route("/creation_compte/", methods=['GET', 'POST'])
 def creation_compte():
     if request.method == 'POST':
         nom_user = request.form['nom_user']
@@ -42,7 +42,7 @@ def creation_compte():
         num_carte = request.form['num_carte']
         #print("password:",password, pseudo_user)
         #passwrd= creation_mdp(pseudo_user)
-        Ajout = ajout_compte(pseudo_user,nom_user,prenom_user,naissance_user,courriel,num_telephone,adresse)
+        Ajout = ajout_compte(pseudo_user,nom_user,prenom_user,naissance_user,courriel,num_telephone,adresse,num_carte)
         #print("Verif:", Verif)
         #if Ajout == 1 and passwrd==1:
         if Ajout == 1:
