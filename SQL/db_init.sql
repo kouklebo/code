@@ -31,11 +31,11 @@ VALUES (2,'Lemongrass Lager','Toast and Teapigs','lager',0.005,9.99,7);
 DROP TABLE data_customers;
 CREATE TABLE IF NOT EXISTS data_customers
 (
-    pseudo          VARCHAR(50),
+    pseudo          VARCHAR(50) NOT NULL ,
     last_name       VARCHAR(500),
     first_name      VARCHAR(500),
     birth_date      DATE,
-    email           VARCHAR(500),
+    email           VARCHAR(500) NOT NULL,
     phone_number    DECIMAL,
     Billing_address VARCHAR(500),
     Credit_card VARCHAR(16),
