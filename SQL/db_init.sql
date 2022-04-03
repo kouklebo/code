@@ -1,5 +1,6 @@
 
 SHOW DATABASES;
+
 DROP DATABASE GLO_2005_projet;
 CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
@@ -8,11 +9,6 @@ SELECT * FROM data_beers;
 SELECT * FROM order_item;
 SELECT * FROM data_customers;
 SELECT * FROM pwd;
-INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (1,'Wet Hopped Pilsner','Insel-Brauerei','Other',0.05,4.99,10);
-
-INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (2,'Lemongrass Lager','Toast and Teapigs','lager',0.005,9.99,7);
 
 CREATE TABLE  IF NOT EXISTS data_beers
 (
@@ -25,16 +21,14 @@ CREATE TABLE  IF NOT EXISTS data_beers
     rating          INT,
     PRIMARY KEY(id)
 );
-SELECT * FROM credit_Card;
-INSERT INTO credit_Card (CC_number, CC_expiration_date) VALUES ('1234567890',20221219);
-CREATE TABLE IF NOT EXISTS credit_Card
-(
-    CC_number VARCHAR(16),
-    CC_expiration_date DATETIME,
-    PRIMARY KEY (CC_number)
-);
-SELECT * FROM data_customers;
 
+INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
+VALUES (1,'Wet Hopped Pilsner','Insel-Brauerei','Other',0.05,4.99,10);
+
+INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
+VALUES (2,'Lemongrass Lager','Toast and Teapigs','lager',0.005,9.99,7);
+
+DROP TABLE data_customers;
 CREATE TABLE IF NOT EXISTS data_customers
 (
     pseudo          VARCHAR(50),
@@ -46,9 +40,22 @@ CREATE TABLE IF NOT EXISTS data_customers
     Billing_address VARCHAR(500),
     Credit_card VARCHAR(16),
     PRIMARY KEY(Pseudo),
-    FOREIGN KEY(Credit_card)
-        REFERENCES credit_Card (CC_number)
+    CONSTRAINT Credit_card UNIQUE(Credit_card)
 );
+
+CREATE TABLE IF NOT EXISTS credit_Card
+(
+    CC_number VARCHAR(16),
+    CC_expiration_date DATETIME,
+    PRIMARY KEY (CC_number),
+    FOREIGN KEY(CC_number)
+        REFERENCES data_customers (Credit_card)
+);
+INSERT INTO credit_Card (CC_number, CC_expiration_date) VALUES ('1234567890',20221219);
+
+CREATE TABLE Pwd(pseudo VARCHAR(50),motdepasse VARCHAR(100),PRIMARY KEY (pseudo));
+INSERT INTO Pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
+
 
 CREATE TABLE IF NOT EXISTS supplier_order
 (
@@ -62,7 +69,7 @@ CREATE TABLE IF NOT EXISTS supplier_order
         REFERENCES data_beers (id)
 );
 
-ALTER TABLE customer_Order CHANGE Client_id Client_id VARCHAR(50);
+
 CREATE TABLE IF NOT EXISTS customer_Order
 (
     Order_id INT AUTO_INCREMENT,

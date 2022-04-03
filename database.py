@@ -17,11 +17,6 @@ def select_table():
     return table
 
 
-# def create_pwd():
-#    request = "CREATE TABLE Pwd(pseudo VARCHAR(100),motdepasse VARCHAR(100),PRIMARY KEY (pseudo))"
-#    cursor.execute(request)
-
-
 # def insert_pwd(pseudo,motdepasse):
 #   request = """INSERT INTO pwd (pseudo,motdepasse) VALUES ("{}","{}");""".format(pseudo,motdepasse)
 #  cursor.execute(request)
