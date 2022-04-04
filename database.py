@@ -17,11 +17,6 @@ def select_table():
     return table
 
 
-# def insert_pwd(pseudo,motdepasse):
-#   request = """INSERT INTO pwd (pseudo,motdepasse) VALUES ("{}","{}");""".format(pseudo,motdepasse)
-#  cursor.execute(request)
-
-
 def verif_mdp(username, mdp):
     request = "SELECT pseudo, motdepasse FROM pwd;"
     cursor.execute(request)
@@ -39,14 +34,16 @@ def verif_mdp(username, mdp):
 
 
 def ajout_compte(pseudo_user, name_user, first_name_user, birth_date_user, email_user, phone_number_user, Billing_address, Credit_card):
-
-    request = "INSERT INTO data_customers (pseudo, last_name, first_name, birth_date, email, phone_number, Billing_address,Credit_card)VALUES (%s, %s,%s,%s,%s,%s,%s,%s)"
-    val = (pseudo_user, name_user, first_name_user, birth_date_user, email_user, phone_number_user, Billing_address,Credit_card)
-    cursor.execute(request, val)
-
-    Verification = 1
-    print(Verification)
-    return Verification
+    try:
+        request = "INSERT INTO data_customers (pseudo, last_name, first_name, birth_date, email, phone_number, Billing_address,Credit_card)VALUES (%s, %s,%s,%s,%s,%s,%s,%s)"
+        val = (pseudo_user, name_user, first_name_user, birth_date_user, email_user, phone_number_user, Billing_address,Credit_card)
+        cursor.execute(request, val)
+        Verification = 1
+        print(Verification)
+        return Verification
+    except ValueError:
+        print("Oops!  That was no valid number.  Try again...")
+        return 0
 
 
 def passwrd(pseudo_user):
@@ -56,16 +53,6 @@ def passwrd(pseudo_user):
     return Verification
 
 
-# def delete_pwd():
-#  request = "DROP TABLE Pwd"
-# cursor.execute(request)
-
-
 if __name__ == '__main__':
     create_table = "CREATE TABLE Todo(id integer AUTO_INCREMENT text varchar(400), PRIMARY KEY(id))"
-    # cursor.execute(create_table)
-    # delete_pwd()
-    # create_pwd()
-    # insert_pwd("Jennifer1","mdp1")
-    # print(verif_mdp('Jennifer1',"mdp1"))
     print(ajout_compte(1, 'Dupont', 'Jean', 19780106, 'jean.dupont@ulaval.ca', 1234567, '20 rue St Joseph','1234567890'));

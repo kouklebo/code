@@ -29,6 +29,8 @@ INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating
 VALUES (2,'Lemongrass Lager','Toast and Teapigs','lager',0.005,9.99,7);
 
 DROP TABLE data_customers;
+SELECT * FROM data_customers;
+SELECT * FROM pwd;
 CREATE TABLE IF NOT EXISTS data_customers
 (
     pseudo          VARCHAR(50) NOT NULL ,
@@ -143,5 +145,13 @@ CREATE TRIGGER updateQuantityAfterUpdate2 AFTER INSERT ON supplier_order
 SELECT * FROM data_customers;
 SELECT * FROM credit_Card;
 
+DELIMITER //
+CREATE TRIGGER Creation_pwd
+   AFTER INSERT ON data_customers
+    FOR EACH ROW
+    BEGIN
+      INSERT INTO pwd(pseudo, motdepasse) VALUES (NEW.pseudo,CONCAT(NEW.pseudo,ROUND( RAND() * 100 )));
+    end//
+DELIMITER ;
 
-
+SELECT * FROM pwd;

@@ -49,9 +49,9 @@ def creation_compte():
         #print("Verif:", Verif)
         #if Ajout == 1 and passwrd==1:
         if Ajout == 1:
-            return 'Compte Crée'
+            return 'Compte Crée. Bienvenue !  Votre mot de passe vous sera envoyé par mail.'
         else:
-            return 'Une erreure est survenue.'
+            return 'Une erreure est survenue. Merci de vérifier le contenu des champs.'
     else:
         return render_template("Compte.html")
 
