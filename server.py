@@ -28,7 +28,8 @@ def compte():
         if Verif == 1:
             return render_template("Compte.html",utilisateur=VarGlobal["pseudo"])
         else:
-            return 'Compte inconnu'
+            #return 'Compte inconnu'
+            return render_template("Compte.html")
     else:
         return render_template("Compte.html")
 

@@ -1,6 +1,8 @@
 import string
 
 import pymysql.cursors
+import csv
+
 
 connection = pymysql.connect(
     host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
@@ -26,24 +28,17 @@ def verif_mdp(username, mdp):
         if username == entry[0] and mdp == entry[1]:
             Verification = 1
             print('Verification', Verification)
-        else:
-            Verification = 0
-            print('Verification', Verification)
-        return Verification
+            return 1
     return Verification
 
 
 def ajout_compte(pseudo_user, name_user, first_name_user, birth_date_user, email_user, phone_number_user, Billing_address, Credit_card):
-    try:
-        request = "INSERT INTO data_customers (pseudo, last_name, first_name, birth_date, email, phone_number, Billing_address,Credit_card)VALUES (%s, %s,%s,%s,%s,%s,%s,%s)"
-        val = (pseudo_user, name_user, first_name_user, birth_date_user, email_user, phone_number_user, Billing_address,Credit_card)
-        cursor.execute(request, val)
-        Verification = 1
-        print(Verification)
-        return Verification
-    except ValueError:
-        print("Oops!  That was no valid number.  Try again...")
-        return 0
+    request = "INSERT INTO data_customers (pseudo, last_name, first_name, birth_date, email, phone_number, Billing_address,Credit_card)VALUES (%s, %s,%s,%s,%s,%s,%s,%s)"
+    val = (pseudo_user, name_user, first_name_user, birth_date_user, email_user, phone_number_user, Billing_address,Credit_card)
+    cursor.execute(request, val)
+    Verification = 1
+    print(Verification)
+    return Verification
 
 
 def passwrd(pseudo_user):

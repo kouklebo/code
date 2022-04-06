@@ -143,7 +143,7 @@ CREATE TRIGGER updateQuantityAfterUpdate2 AFTER INSERT ON supplier_order
     SET stock.Quantity = stock.Quantity - (SELECT Quantity FROM supplier_order S WHERE S.Product_id = NEW.Product_id);
 
 SELECT * FROM data_customers;
-SELECT * FROM credit_Card;
+SELECT * FROM pwd;
 
 DELIMITER //
 CREATE TRIGGER Creation_pwd
