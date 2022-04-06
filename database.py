@@ -41,13 +41,13 @@ def ajout_compte(pseudo_user, name_user, first_name_user, birth_date_user, email
     return Verification
 
 
-def passwrd(pseudo_user):
-    request = "INSERT INTO pwd (pseudo,motdepasse) VALUES (pseudo,mdp2)"
-    cursor.execute(request)
-    Verification = 1
-    return Verification
+#def passwrd(pseudo_user):
+ #   request = "INSERT INTO pwd (pseudo,motdepasse) VALUES (pseudo,mdp2)"
+  #  cursor.execute(request)
+    #Verification = 1
+    #return Verification
 
 
 if __name__ == '__main__':
     create_table = "CREATE TABLE Todo(id integer AUTO_INCREMENT text varchar(400), PRIMARY KEY(id))"
-    print(ajout_compte(1, 'Dupont', 'Jean', 19780106, 'jean.dupont@ulaval.ca', 1234567, '20 rue St Joseph','1234567890'));
+   # print(ajout_compte(1, 'Dupont', 'Jean', 19780106, 'jean.dupont@ulaval.ca', 1234567, '20 rue St Joseph','1234567890'));
