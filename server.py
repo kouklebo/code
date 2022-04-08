@@ -21,7 +21,6 @@ def compte():
 
 
 @app.route("/compte_login/", methods=['GET', 'POST'])
-#def compte_creation():
 def compte_login ():
     global VarGlobal
     if request.method == 'POST':

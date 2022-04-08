@@ -111,9 +111,12 @@ function fetchUser() {
     fetch(getUrl).then(function(response) {
         return response.json()
     }).then(function(data) {
-        displayUser(data.pseudo_user)
+        var tableMagasin = data.pseudo_user
+
+        for (let maTable of tableMagasin) {
+            displayUser(maTable)
         }
-    )
+    })
 }
 
 
@@ -122,8 +125,8 @@ function displayUser(text) {
 
     var newTableElement = document.createElement("div")
 
-    sessionStorage.setItem("pseudo", userContainer.accessKey)
-    newTableElement.innerHTML = text
+    sessionStorage.setItem("pseudo", text)
+    newTableElement.innerHTML = sessionStorage.getItem("pseudo")
     userContainer.appendChild(newTableElement)
 }
 
