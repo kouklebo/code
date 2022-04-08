@@ -15,23 +15,33 @@ def magasin():
     return render_template("Magasin.html")
 
 
-@app.route("/compte/", methods=['GET', 'POST'])
+@app.route("/compte/")
 def compte():
+    return render_template("Compte.html")
+
+
+@app.route("/compte_creation/", methods=['GET', 'POST'])
+def compte_creation():
     global VarGlobal
     if request.method == 'POST':
         pseudo_user = request.form['pseudo_user']
         password = request.form['password']
         VarGlobal["pseudo"] = pseudo_user
         #print("password:",password, pseudo_user)
-        Verif = verif_mdp(pseudo_user,password)
+        Verif = verif_mdp(pseudo_user, password)
         #print("Verif:", Verif)
-        if Verif == 1:
-            return render_template("Compte.html",utilisateur=VarGlobal["pseudo"])
+        if Verif:
+            response = {
+                "status": 200,
+                "pseudo_user": pseudo_user
+            }
         else:
-            #return 'Compte inconnu'
-            return render_template("Compte.html")
-    else:
-        return render_template("Compte.html")
+            response = {
+                "status": 200,
+                "pseudo_user": 0
+            }
+    return jsonify(response)
+
 
 @app.route("/creation_compte/", methods=['GET', 'POST'])
 def creation_compte():
