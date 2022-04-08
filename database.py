@@ -19,9 +19,8 @@ def select_table():
     return table
 
 
-def choix_panier(id, username, quantite):
-    request = "INSERT INTO custumer_Order (Order_id, Client_id , Beer_id , Quantity, Total_price) " \
-              "VALUES ('{}', '{}', '{}',10);".format(id, username, quantite)
+def choix_panier(username, beer_id, quantity):
+    request = """INSERT INTO customer_Order (Order_id, Client_id , Beer_id , Quantity, Total_price)  VALUES (1,'{}', '{}', '{}',10);""".format(username, beer_id, quantity)
     cursor.execute(request)
 
 

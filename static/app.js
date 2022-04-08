@@ -74,8 +74,8 @@ function fetchTable() {
 //
 //funtion push pour pusher dans le custumer Order avec la variable globale id , et utilisateur
 //
-function postTodo(text) {
-   var postUrl = "achats"
+function postAchat(beer_id,username,quantity) {
+   var postUrl = "/choixPanier/"
 
     fetch(postUrl, {
         method: "POST",
@@ -83,7 +83,9 @@ function postTodo(text) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            text: text
+            beer_id: beer_id,
+            username: username,
+            quantity: quantity
         })
     }).then(function(response) {
         return response.json()
@@ -93,4 +95,15 @@ function postTodo(text) {
 }
 
 
+function onButtonAchat() {
+    var inputElement = document.getElementById("quantity")
 
+    var newTodoText = inputElement.value
+
+
+    inputElement.value = ""
+
+    postAchat(sessionStorage.getItem("beerId"),
+        "bob",
+        newTodoText)
+}

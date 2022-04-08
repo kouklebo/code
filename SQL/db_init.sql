@@ -9,6 +9,7 @@ SELECT * FROM data_beers;
 SELECT * FROM order_item;
 SELECT * FROM data_customers;
 SELECT * FROM data_beers;
+SELECT * FROM customer_Order;
 
 CREATE TABLE  IF NOT EXISTS data_beers
 (

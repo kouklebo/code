@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import verif_mdp, select_table, ajout_compte
+from database import verif_mdp, select_table, ajout_compte, choix_panier
 
 app = Flask(__name__)
 
@@ -61,18 +61,15 @@ def creation_compte():
 def panier():
     return render_template("Panier.html")
 
-@app.route("/add-todo/", methods=["POST"])
-def add_todo():
+
+@app.route("/choixPanier/", methods=["POST"])
+def choix_todo():
     data = request.json
-
-    insert_todo(data["text"])
-
+    choix_panier(data["username"], data["beer_id"], data["quantity"])
     response = {
         "status": 200
     }
-
     return jsonify(response)
-
 
 
 @app.route("/contacter-nous/")
