@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="../static/app.js"></script>
 </head>
-<body>
+<body onload="session()">
 <div class="taskbar">
-  <a class="active" href="/">Principal</a>
-  <a href="/magasin/">Magasin</a>
-  <a href="/compte/">Compte</a>
-  <a href="/panier/">Panier</a>
-  <a href="/contacter-nous/">Contacter-nous</a>
-</div>
+      <a class="active" href="?pseudo= {{utilisateur}}/">Principal</a>
+      <a href="/magasin?pseudo= {{utilisateur}}/">Magasin</a>
+      <a href="/compte?pseudo= {{utilisateur}}/">Compte</a>
+      <a href="/panier?pseudo= {{utilisateur}}/">Panier</a>
+      <a href="/contacter-nous?pseudo= {{utilisateur}}/">Contacter-nous</a>
+    </div>
 <h1>Biere Sans Alcool</h1><br>
 <h2>Bla bla bla</h2>>
 <img src="/static/houblon.jpg" alt="Ton type" style="width:300px;height:300px;"><br>

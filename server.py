@@ -26,7 +26,7 @@ def compte():
         Verif = verif_mdp(pseudo_user,password)
         #print("Verif:", Verif)
         if Verif == 1:
-            return render_template("Compte.html",utilisateur=VarGlobal["pseudo")
+            return render_template("Compte.html",utilisateur=VarGlobal["pseudo"])
         else:
             #return 'Compte inconnu'
             return render_template("Compte.html")

@@ -8,12 +8,12 @@
 </head>
 <body onload="fetchTable();session()">
 <div class="taskbar">
-  <a class="active" href="/">Principal</a>
-  <a href="/magasin/">Magasin</a>
-  <a href="/compte/">Compte</a>
-  <a href="/panier/">Panier</a>
-  <a href="/contacter-nous/">Contacter-nous</a>
-</div>
+      <a class="active" href="?pseudo= {{utilisateur}}/">Principal</a>
+      <a href="/magasin?pseudo= {{utilisateur}}/">Magasin</a>
+      <a href="/compte?pseudo= {{utilisateur}}/">Compte</a>
+      <a href="/panier?pseudo= {{utilisateur}}/">Panier</a>
+      <a href="/contacter-nous?pseudo= {{utilisateur}}/">Contacter-nous</a>
+    </div>
  <!--information utilisateur en variable global-->
     <div id="info_user">
         <p>Bonjour, {{utilisateur}}</p>

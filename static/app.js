@@ -36,11 +36,16 @@ function reaction(){
 
     tableContainer.appendChild(newTableElement)
 }
-
 function session(){
-    utilisateur.innerHTML = sessionStorage.getItem({utilisateur})
-    tContainer.appendChild(utilisateur)
+    var tableContainer = document.getElementById("oneTable-container")
+
+    var newTableElement = document.createElement("div")
+
+    newTableElement.innerHTML = sessionStorage.getItem("info_user")
+
+    tableContainer.appendChild(newTableElement)
 }
+
 
 
 function displayNewTable(text,id) {
