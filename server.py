@@ -15,6 +15,7 @@ def magasin():
     return render_template("Magasin.html")
 
 
+
 @app.route("/compte/", methods=['GET', 'POST'])
 def compte():
     return render_template("Compte.html")
