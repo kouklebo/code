@@ -70,11 +70,27 @@ function fetchTable() {
     })
 }
 
-//funtion get pour aller chercher le ID de la biere en question
+//
 //
 //funtion push pour pusher dans le custumer Order avec la variable globale id , et utilisateur
 //
+function postTodo(text) {
+   var postUrl = "add-todo"
 
+    fetch(postUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            text: text
+        })
+    }).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        console.log("worked")
+    })
+}
 
 
 
