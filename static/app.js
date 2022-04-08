@@ -104,15 +104,6 @@ function onButtonAchat() {
         newTodoText)
 }
 
-function session(){
-    var tableContainer = document.getElementById("oneTable")
-
-    var newTableElement = document.createElement("div")
-
-    newTableElement.innerHTML = sessionStorage.getItem("pseudo")
-
-    tableContainer.appendChild(newTableElement)
-}
 
 function fetchUser() {
     var getUrl = "/compte_login/"
@@ -120,16 +111,21 @@ function fetchUser() {
     fetch(getUrl).then(function(response) {
         return response.json()
     }).then(function(data) {
-        sessionStorage.setItem("pseudo", tableContainer.accessKey) = data.pseudo_user
-        displayNewTable(pseudo_user)
+        displayUser(data.pseudo_user)
         }
     )
 }
 
 
+function displayUser(text) {
+    var userContainer = document.getElementById("user-container")
 
+    var newTableElement = document.createElement("div")
 
-
+    sessionStorage.setItem("pseudo", userContainer.accessKey)
+    newTableElement.innerHTML = text
+    userContainer.appendChild(newTableElement)
+}
 
 
 
