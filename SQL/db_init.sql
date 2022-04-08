@@ -55,8 +55,8 @@ CREATE TABLE IF NOT EXISTS credit_Card
 );
 INSERT INTO credit_Card (CC_number, CC_expiration_date) VALUES ('1234567890',20221219);
 
-CREATE TABLE Pwd(pseudo VARCHAR(50),motdepasse VARCHAR(100),PRIMARY KEY (pseudo));
-INSERT INTO Pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
+CREATE TABLE pwd(pseudo VARCHAR(50),motdepasse VARCHAR(100),PRIMARY KEY (pseudo));
+INSERT INTO pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
 
 
 CREATE TABLE IF NOT EXISTS supplier_order

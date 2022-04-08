@@ -5,7 +5,7 @@ import csv
 
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="Password123#@!", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 
@@ -17,6 +17,12 @@ def select_table():
     table = [entry for entry in cursor.fetchall()]
 
     return table
+
+
+def choix_panier(id, username, quantite):
+    request = "INSERT INTO custumer_Order (Order_id, Client_id , Beer_id , Quantity, Total_price) " \
+              "VALUES ('{}', '{}', '{}',10);".format(id, username, quantite)
+    cursor.execute(request)
 
 
 def verif_mdp(username, mdp):

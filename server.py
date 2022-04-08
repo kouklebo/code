@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import verif_mdp, select_table,ajout_compte
+from database import verif_mdp, select_table, ajout_compte
 
 app = Flask(__name__)
 
