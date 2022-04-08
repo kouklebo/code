@@ -1,11 +1,10 @@
 import string
-
 import pymysql.cursors
 import csv
 
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="Password123#@!", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 
@@ -27,6 +26,8 @@ def choix_panier(username, beer_id, quantity):
 def verif_mdp(username, mdp):
     request = "SELECT pseudo, motdepasse FROM pwd;"
     cursor.execute(request)
+
+    Verification = -1
     for entry in cursor.fetchall():
         if username == entry[0] and mdp == entry[1]:
             return True

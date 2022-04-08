@@ -15,6 +15,7 @@ def magasin():
     return render_template("Magasin.html")
 
 
+
 @app.route("/compte/", methods=['GET', 'POST'])
 def compte():
     return render_template("Compte.html")
@@ -34,6 +35,7 @@ def compte_login ():
             response = {
                 "status": 200,
                 "pseudo_user": pseudo_user
+                #"pseudo_user":VarGlobal["pseudo"]
             }
         else:
             response = {
