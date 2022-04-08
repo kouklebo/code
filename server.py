@@ -15,13 +15,14 @@ def magasin():
     return render_template("Magasin.html")
 
 
-@app.route("/compte/")
+@app.route("/compte/", methods=['GET', 'POST'])
 def compte():
     return render_template("Compte.html")
 
 
 @app.route("/compte_login/", methods=['GET', 'POST'])
-def compte_creation():
+#def compte_creation():
+def compte_login ():
     global VarGlobal
     if request.method == 'POST':
         pseudo_user = request.form['pseudo_user']
