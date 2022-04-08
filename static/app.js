@@ -75,7 +75,7 @@ function fetchTable() {
 //funtion push pour pusher dans le custumer Order avec la variable globale id , et utilisateur
 //
 function postTodo(text) {
-   var postUrl = "add-todo"
+   var postUrl = "achats"
 
     fetch(postUrl, {
         method: "POST",
@@ -84,7 +84,6 @@ function postTodo(text) {
         },
         body: JSON.stringify({
             text: text
-            id: 
         })
     }).then(function(response) {
         return response.json()

@@ -73,6 +73,18 @@ def add_todo():
 
     return jsonify(response)
 
+@app.route("/achats/", methods=["POST"])
+def achats():
+    data = request.json
+
+    insert_todo(data["text"])
+
+    response = {
+        "status": 200
+    }
+
+    return jsonify(response)
+
 @app.route("/contacter-nous/")
 def contacter():
     return render_template("Contacter-nous.html")

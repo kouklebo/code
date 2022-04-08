@@ -8,7 +8,7 @@ SHOW TABLES;
 SELECT * FROM data_beers;
 SELECT * FROM order_item;
 SELECT * FROM data_customers;
-SELECT * FROM pwd;
+SELECT * FROM data_beers;
 
 CREATE TABLE  IF NOT EXISTS data_beers
 (
