@@ -56,11 +56,22 @@ def creation_compte():
     else:
         return render_template("Compte.html")
 
-
+// Ajout dans le panier
 @app.route("/panier/")
 def panier():
     return render_template("Panier.html")
 
+@app.route("/add-todo/", methods=["POST"])
+def add_todo():
+    data = request.json
+
+    insert_todo(data["text"])
+
+    response = {
+        "status": 200
+    }
+
+    return jsonify(response)
 
 @app.route("/contacter-nous/")
 def contacter():
