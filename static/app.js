@@ -37,6 +37,11 @@ function reaction(){
     tableContainer.appendChild(newTableElement)
 }
 
+function session(){
+    utilisateur.innerHTML = sessionStorage.getItem({utilisateur})
+    tContainer.appendChild(utilisateur)
+}
+
 
 function displayNewTable(text,id) {
     var tableContainer = document.getElementById("table-container")
