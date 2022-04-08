@@ -56,7 +56,7 @@ def creation_compte():
     else:
         return render_template("Compte.html")
 
-// Ajout dans le panier
+
 @app.route("/panier/")
 def panier():
     return render_template("Panier.html")
