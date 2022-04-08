@@ -2,11 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title onload="session()">Compte</title>
+    <title>Compte</title>
     <link rel="stylesheet" href="/static/style.css">
     <script src="../static/app.js"></script>
 </head>
-<body onload="fetchUser()">
+<body>
     <div class="taskbar">
       <a class="active" href="?pseudo= {{utilisateur}}/">Principal</a>
       <a href="/magasin?pseudo= {{utilisateur}}/">Magasin</a>
@@ -18,12 +18,17 @@
     <div id="info_user">
         <p>Bonjour, {{utilisateur}}</p>
     </div>
+
+     <div id="user-container" >
+
+    </div>
+
     <h1>Biere Sans Alcool</h1><br>
     <img src="/static/orgeField.jpg" alt="Ton type" style="width:300px;height:250px;"><br>
     <a>Connectez-vous</a><br>
 
 <a>SI LA CONNECTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNER</a><br>
-    <form action ="{{ url_for('compte') }}" method="post">
+    <form action ="fetchUser()", method="post">
         <label for="Pseudo_user">Pseudo</label>
         <input type="text" name="pseudo_user" id="pseudo_user" placeholder="pseudo" /><br>
 
