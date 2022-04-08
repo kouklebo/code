@@ -70,6 +70,10 @@ function fetchTable() {
     })
 }
 
+//funtion get pour aller chercher le ID de la biere en question
+//
+//funtion push pour pusher dans le custumer Order avec la variable globale id , et utilisateur
+//
 
 
 
