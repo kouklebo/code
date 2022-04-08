@@ -20,7 +20,7 @@ def compte():
     return render_template("Compte.html")
 
 
-@app.route("/compte_creation/", methods=['GET', 'POST'])
+@app.route("/compte_login/", methods=['GET', 'POST'])
 def compte_creation():
     global VarGlobal
     if request.method == 'POST':

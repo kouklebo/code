@@ -36,8 +36,10 @@ function reaction(){
 
     tableContainer.appendChild(newTableElement)
 }
+
+
 function session(){
-    var tableContainer = document.getElementById("oneTable-container")
+    var tableContainer = document.getElementById("oneTable")
 
     var newTableElement = document.createElement("div")
 
@@ -45,7 +47,6 @@ function session(){
 
     tableContainer.appendChild(newTableElement)
 }
-
 
 
 function displayNewTable(text,id) {
@@ -80,10 +81,7 @@ function fetchTable() {
     })
 }
 
-//
-//
-//funtion push pour pusher dans le custumer Order avec la variable globale id , et utilisateur
-//
+
 function postAchat(beer_id,username,quantity) {
    var postUrl = "/choixPanier/"
 
@@ -110,7 +108,6 @@ function onButtonAchat() {
 
     var newTodoText = inputElement.value
 
-
     inputElement.value = ""
 
     postAchat(sessionStorage.getItem("beerId"),
@@ -119,6 +116,17 @@ function onButtonAchat() {
 }
 
 
+function fetchUser() {
+    var getUrl = "/compte_login/"
+
+    fetch(getUrl).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        sessionStorage.setItem("pseudo", tableContainer.accessKey) = data.pseudo_user
+
+        }
+    )
+}
 
 
 
