@@ -35,6 +35,7 @@ def compte_login ():
             response = {
                 "status": 200,
                 "pseudo_user": pseudo_user
+                #"pseudo_user":VarGlobal["pseudo"]
             }
         else:
             response = {
