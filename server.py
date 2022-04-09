@@ -15,9 +15,6 @@ def magasin():
 
 @app.route("/magasin/style/", methods=["GET"])
 def tri_style():
-    args = requet.arg  # Inutile mais permet de voir ce qui est récupérer
-    print(args)  # Inutile mais permet de voir ce qui est récupérer
-
     query = request.args.get("query")
 
     todos = select_style(query)
