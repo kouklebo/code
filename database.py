@@ -31,8 +31,8 @@ def select_style(query=None):
 
     return table_trie
 
-def select_commande(query=None):
-    request = """SELECT * FROM customer_Order WHERE Client_id='%{}%'; """.format(query)
+def select_commande(user=None):
+    request = """SELECT * FROM customer_Order WHERE Client_id='%{}%'; """.format(user)
 
     cursor.execute(request)
 
