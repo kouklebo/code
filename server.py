@@ -3,7 +3,6 @@ from database import verif_mdp, select_table, ajout_compte, choix_panier
 
 app = Flask(__name__)
 
-VarGlobal = {}
 
 @app.route("/")
 def index():
@@ -22,27 +21,21 @@ def compte():
 
 
 @app.route("/compte_login/", methods=['GET', 'POST'])
-def compte_login ():
-    global VarGlobal
+def compte_login():
     if request.method == 'POST':
-        pseudo_user = request.form['pseudo_user']
-        password = request.form['password']
-        VarGlobal["pseudo"] = pseudo_user
-        #print("password:",password, pseudo_user)
-        Verif = verif_mdp(pseudo_user, password)
-        #print("Verif:", Verif)
-        if Verif:
+        data = request.json
+
+        if verif_mdp(data["pseudo_user"], data["password"]):
             response = {
                 "status": 200,
-                "pseudo_user": pseudo_user
-                #"pseudo_user":VarGlobal["pseudo"]
+                "pseudo_user": data["pseudo_user"]
             }
         else:
             response = {
                 "status": 200,
-                "pseudo_user": 0
+                "pseudo_user": None
             }
-    return jsonify(response)
+        return jsonify(response)
 
 
 @app.route("/creation_compte/", methods=['GET', 'POST'])

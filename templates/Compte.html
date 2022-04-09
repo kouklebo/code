@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="../static/app.js"></script>
 </head>
-<body>
+<body onload="displayUser()">
     <div class="taskbar">
       <a class="active" href="/">Principal</a>
       <a href="/magasin/">Magasin</a>
@@ -14,13 +14,9 @@
       <a href="/panier/">Panier</a>
       <a href="/contacter-nous/">Contacter-nous</a>
     </div>
-    <!--information utilisateur en variable global-->
-    <div id="info_user">
-        <p>Bonjour, {{utilisateur}}</p>
-    </div>
 
+    <a>Bonjour, </a>
      <div id="user-container" >
-
     </div>
 
     <h1>Biere Sans Alcool</h1><br>
@@ -28,15 +24,15 @@
     <a>Connectez-vous</a><br>
 
 <a>SI LA CONNECTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNER</a><br>
-    <form action = "{{ url_for('compte_login') }}" method="post">
         <label for="Pseudo_user">Pseudo</label>
         <input type="text" name="pseudo_user" id="pseudo_user" placeholder="pseudo" /><br>
 
         <label for="Password">Mot de passse </label>
         <input type="text" name="password" id="password" placeholder="mot de passe" /><br>
 
-        <input type="submit" onclick="fetchUser()" value = "Se connecter "/><br><br>
-    </form>
+        <button type="submit" onclick="onClickLogin()"  value="Se connecter ">connexion </button><br><br>
+
+
 
 <a>SI L'INSCRIPTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNER</a><br>
 <form action ="{{ url_for('creation_compte') }}" method="post">

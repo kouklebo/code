@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/static/style.css">
     <script src="../static/app.js"></script>
 </head>
-<body onload="fetchTodos(),session()"">
+<body onload="fetchTodos();displayUser()">
 <div class="taskbar">
       <a class="active" href="/">Principal</a>
       <a href="/magasin/">Magasin</a>
@@ -14,9 +14,13 @@
       <a href="/panier/">Panier</a>
       <a href="/contacter-nous/">Contacter-nous</a>
     </div>
+        <a>Bonjour, </a>
+     <div id="user-container" >
+    </div>
 <h1>Biere Sans Alcool</h1>
     <h2>Ta Biere</h2>
         <h3>Ton Style</h3><br>
+
 <img src="/static/beerAlltype.jpg" alt="Ton type" style="width:600px;height:500px;">
     <input id="todo-input" type="text" placeholder="Add something"/>
     <button type="button" onclick="onButtonClick()">Add todo</button>

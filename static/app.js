@@ -105,30 +105,45 @@ function onButtonAchat() {
 }
 
 
-function fetchUser() {
-    var getUrl = "/compte_login/"
+function postUser(username,password) {
+   var postUrl = "/compte_login/"
 
-    fetch(getUrl).then(function(response) {
+    fetch(postUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    }).then(function(response) {
         return response.json()
     }).then(function(data) {
-        var tableMagasin = data.pseudo_user
-
-        for (let maTable of tableMagasin) {
-            displayUser(maTable)
-        }
+        console.log("worked")
     })
 }
 
 
-function displayUser(text) {
+function onClickLogin() {
+
+    var userContainer = document.getElementById("pseudo_user")
+    var passwordContainer = document.getElementById("password")
+
+    sessionStorage.setItem("pseudo_user", userContainer.value)
+    sessionStorage.setItem("password", passwordContainer.value)
+
+    displayUser()
+}
+
+
+function displayUser() {
     var userContainer = document.getElementById("user-container")
 
     var newTableElement = document.createElement("div")
 
-    sessionStorage.setItem("pseudo", text)
-    newTableElement.innerHTML = sessionStorage.getItem("pseudo")
+    newTableElement.innerHTML = sessionStorage.getItem("pseudo_user")
+
     userContainer.appendChild(newTableElement)
 }
-
-
 
