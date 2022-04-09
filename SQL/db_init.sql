@@ -24,10 +24,10 @@ CREATE TABLE  IF NOT EXISTS data_beers
 );
 
 INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (1,'Wet Hopped Pilsner','Insel-Brauerei','Other',0.05,4.99,10);
+VALUES (5,'Blanche','Brasserie patate-poil-st-prete','ipa',0.05,6.99,10);
 
 INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (2,'Lemongrass Lager','Toast and Teapigs','lager',0.005,9.99,7);
+VALUES (6,'verte dazur','brasserie orange et frere','rousse',0.005,9.99,7);
 
 DROP TABLE data_customers;
 SELECT * FROM data_customers;

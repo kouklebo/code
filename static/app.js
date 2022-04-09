@@ -40,7 +40,6 @@ function reaction(){
 
 function displayNewTable(text,id) {
     var tableContainer = document.getElementById("table-container")
-
     var newTableElement = document.createElement("div")
 
     newTableElement.onclick = function (){
@@ -192,10 +191,11 @@ function fetchTodoWithQuery(query) {
 }
 
 
-function select_type() {
-    var inputElement = document.getElementById("selectType")
+function select_type(clicked_id) {
+    var inputElement = document.getElementById(clicked_id)
 
     var search = inputElement.value
-
+   var tableContainer = document.getElementById("table-container")
+    tableContainer.innerHTML=""
     fetchTodoWithQuery(search)
 }
