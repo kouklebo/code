@@ -29,7 +29,7 @@ def tri_style():
 @app.route("/panier_commande/", methods=["GET"])
 def commande():
     user = request.args.get("user")
-
+    print (user)
     todos = select_commande()
 
     response = {
