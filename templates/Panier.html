@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="../static/app.js"></script>
 </head>
-<body >
+<body onload="fetchCommandeWithQuery()" >
 <div class="taskbar">
       <a class="active" href="/">Principal</a>
       <a href="/magasin/">Magasin</a>
@@ -21,8 +21,6 @@
 <img src="/static/houblon.jpg" alt="Ton type" style="width:300px;height:300px;"><br>
 <br>
 <h2>Ma Commande</h2>
-<button type="button" onclick="displayNewPanier()">Afficher mon Panier</button>
-<button type="button" onclick="fetchCommandeWithQuery()">Afficher mon query</button>
      <div id="panier-commande" >
 
     </div>
