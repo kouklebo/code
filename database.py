@@ -4,7 +4,7 @@ import csv
 
 
 connection = pymysql.connect(
-    host="localhost", user="root", password="Password123#@!", db="GLO_2005_projet", autocommit=True)
+    host="localhost", user="root", password="root", db="GLO_2005_projet", autocommit=True)
 
 cursor = connection.cursor()
 
@@ -17,6 +17,19 @@ def select_table():
 
     return table
 
+def select_style(query=None):
+    request = "SELECT * FROM data_beers"
+
+    if query:
+        request += """ WHERE style LIKE '%{}%'""".format(query)
+
+    request += ";"
+
+    cursor.execute(request)
+
+    table_trie = [entry[0] for entry in cursor.fetchall()]
+
+    return table_trie
 
 def choix_panier(username, beer_id, quantity):
     request = """INSERT INTO customer_Order (Client_id , Beer_id , Quantity, Total_price)  VALUES ('{}', '{}', '{}',10);""".format(username, beer_id, quantity)

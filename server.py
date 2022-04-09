@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import verif_mdp, select_table, ajout_compte, choix_panier
+from database import verif_mdp, select_table, ajout_compte, choix_panier, select_style
 
 app = Flask(__name__)
 
@@ -13,7 +13,21 @@ def index():
 def magasin():
     return render_template("Magasin.html")
 
+@app.route("/magasin/style/", methods=["GET"])
+def tri_style():
+    args = requet.arg  # Inutile mais permet de voir ce qui est récupérer
+    print(args)  # Inutile mais permet de voir ce qui est récupérer
 
+    query = request.args.get("query")
+
+    todos = select_style(query)
+
+    response = {
+        "status": 200,
+        "todos": todos
+    }
+
+    return jsonify(response)
 
 @app.route("/compte/", methods=['GET', 'POST'])
 def compte():
