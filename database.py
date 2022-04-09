@@ -27,7 +27,7 @@ def select_style(query=None):
 
     cursor.execute(request)
 
-    table_trie = [entry[0] for entry in cursor.fetchall()]
+    table_trie = [entry for entry in cursor.fetchall()]
 
     return table_trie
 
