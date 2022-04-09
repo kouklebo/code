@@ -32,7 +32,6 @@ def select_style(query=None):
 
     return table_trie
 
-
 def select_commande():
     request = "SELECT * FROM customer_Order;"
     cursor.execute(request)
