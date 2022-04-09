@@ -26,6 +26,19 @@ def tri_style():
 
     return jsonify(response)
 
+@app.route("/panier/commande/", methods=["GET"])
+def commande():
+    query = request.args.get("user")
+
+    todos = select_style(query)
+
+    response = {
+        "status": 200,
+        "todos": todos
+    }
+
+    return jsonify(response)
+
 @app.route("/compte/", methods=['GET', 'POST'])
 def compte():
     return render_template("Compte.html")
