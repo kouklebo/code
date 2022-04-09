@@ -178,7 +178,7 @@ function type_ofbeer(type) {
 //displayNewTable(text,id)
 
 function fetchTodoWithQuery(query) {
-    var getUrl = "todos?query=" + query
+    var getUrl = "/magasin/style/?query=" + query
 
     fetch(getUrl).then(function(response) {
         return response.json()
@@ -186,19 +186,16 @@ function fetchTodoWithQuery(query) {
         todos = data.todos
 
         for (let todo of todos) {
-            displayNewTodo(todo, true)
+            displayNewTable(todo, todo[0])
         }
     })
 }
 
-function onSearchClick() {
-    var inputElement = document.getElementById("todo-search")
-    var searchContainer = document.getElementById("search-container")
-    searchContainer.innerHTML = ""
+
+function select_type() {
+    var inputElement = document.getElementById("selectType")
 
     var search = inputElement.value
 
     fetchTodoWithQuery(search)
-
-    inputElement.value = ""
 }
