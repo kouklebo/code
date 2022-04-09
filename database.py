@@ -19,9 +19,8 @@ def select_table():
 
 def select_style(query=None):
     request = "SELECT * FROM data_beers"
-
-    if query:
-        request += """ WHERE style LIKE '%{}%'""".format(query)
+    if query != "all":
+        request += """ WHERE Style LIKE '%{}%'""".format(query)
 
     request += ";"
 
