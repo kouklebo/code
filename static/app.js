@@ -148,3 +148,57 @@ function displayUser() {
     userContainer.appendChild(newTableElement)
 }
 
+
+function selectType() {
+    sessionStorage.setItem("beerChoice", tableContainer.accessKey)
+    sessionStorage.setItem("beerId", tableContainer.id)
+    sessionStorage.setItem("pseudo_user", userContainer.value)
+    sessionStorage.setItem("password", passwordContainer.value)
+}
+
+
+function type_ofbeer(type) {
+   var postUrl = "/compte_verif/"
+
+    fetch(postUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    }).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        console.log("worked")
+    })
+}
+//displayNewTable(text,id)
+
+function fetchTodoWithQuery(query) {
+    var getUrl = "todos?query=" + query
+
+    fetch(getUrl).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        todos = data.todos
+
+        for (let todo of todos) {
+            displayNewTodo(todo, true)
+        }
+    })
+}
+
+function onSearchClick() {
+    var inputElement = document.getElementById("todo-search")
+    var searchContainer = document.getElementById("search-container")
+    searchContainer.innerHTML = ""
+
+    var search = inputElement.value
+
+    fetchTodoWithQuery(search)
+
+    inputElement.value = ""
+}
