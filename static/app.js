@@ -156,26 +156,6 @@ function selectType() {
 }
 
 
-function type_ofbeer(type) {
-   var postUrl = "/compte_verif/"
-
-    fetch(postUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username: username,
-            password: password
-        })
-    }).then(function(response) {
-        return response.json()
-    }).then(function(data) {
-        console.log("worked")
-    })
-}
-//displayNewTable(text,id)
-
 function fetchTodoWithQuery(query) {
     var getUrl = "/magasin/style/?query=" + query
 
@@ -199,3 +179,32 @@ function select_type(clicked_id) {
     tableContainer.innerHTML=""
     fetchTodoWithQuery(search)
 }
+
+
+function fetchCommandeWithQuery() {
+    var getUrl = "/panier/commande/?user=" + sessionStorage.setItem("pseudo_user", userContainer.value)
+
+    fetch(getUrl).then(function(response) {
+        return response.json()
+    }).then(function(data) {
+        todos = data.todos
+
+        for (let todo of todos) {
+            displayNewPanier(todo, todo[0])
+        }
+    })
+}
+
+
+function displayNewPanier(text) {
+    var tableContainer = document.getElementById("panier_commande")
+    var newTableElement = document.createElement("div")
+
+    newTableElement.innerHTML = text
+    tableContainer.appendChild(newTableElement)
+}
+
+
+
+
+
