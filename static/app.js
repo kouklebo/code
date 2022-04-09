@@ -100,7 +100,7 @@ function onButtonAchat() {
     inputElement.value = ""
 
     postAchat(sessionStorage.getItem("beerId"),
-        "bob",
+        sessionStorage.getItem("pseudo_user"),
         newTodoText)
 }
 

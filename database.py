@@ -19,7 +19,7 @@ def select_table():
 
 
 def choix_panier(username, beer_id, quantity):
-    request = """INSERT INTO customer_Order (Order_id, Client_id , Beer_id , Quantity, Total_price)  VALUES (2,'{}', '{}', '{}',10);""".format(username, beer_id, quantity)
+    request = """INSERT INTO customer_Order (Client_id , Beer_id , Quantity, Total_price)  VALUES ('{}', '{}', '{}',10);""".format(username, beer_id, quantity)
     cursor.execute(request)
 
 
