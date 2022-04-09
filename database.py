@@ -17,6 +17,7 @@ def select_table():
 
     return table
 
+
 def select_style(query=None):
     request = "SELECT * FROM data_beers"
 
@@ -31,14 +32,15 @@ def select_style(query=None):
 
     return table_trie
 
-def select_commande(query=None):
-    request = """SELECT * FROM customer_Order WHERE Client_id='%{}%'; """.format(query)
 
+def select_commande():
+    request = "SELECT * FROM customer_Order;"
     cursor.execute(request)
 
-    table_commande = [entry for entry in cursor.fetchall()]
+    table = [entry for entry in cursor.fetchall()]
 
-    return table_commande
+    return table
+
 
 def choix_panier(username, beer_id, quantity):
     request = """INSERT INTO customer_Order (Client_id , Beer_id , Quantity, Total_price)  VALUES ('{}', '{}', '{}',10);""".format(username, beer_id, quantity)

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import verif_mdp, select_table, ajout_compte, choix_panier, select_style
+from database import verif_mdp, select_table, ajout_compte, choix_panier, select_style,select_commande
 
 app = Flask(__name__)
 
@@ -26,11 +26,11 @@ def tri_style():
 
     return jsonify(response)
 
-@app.route("/panier/commande/", methods=["GET"])
+@app.route("/panier_commande/", methods=["GET"])
 def commande():
-    query = request.args.get("user")
+    user = request.args.get("user")
 
-    todos = select_style(query)
+    todos = select_commande()
 
     response = {
         "status": 200,

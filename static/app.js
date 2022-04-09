@@ -175,14 +175,14 @@ function select_type(clicked_id) {
     var inputElement = document.getElementById(clicked_id)
 
     var search = inputElement.value
-   var tableContainer = document.getElementById("table-container")
+    var tableContainer = document.getElementById("table-container")
     tableContainer.innerHTML=""
     fetchTodoWithQuery(search)
 }
 
 
 function fetchCommandeWithQuery() {
-    var getUrl = "/panier/commande/?user=" + sessionStorage.setItem("pseudo_user", userContainer.value)
+    var getUrl = "/panier_commande/?user=" + sessionStorage.getItem("pseudo_user")
 
     fetch(getUrl).then(function(response) {
         return response.json()
@@ -190,21 +190,18 @@ function fetchCommandeWithQuery() {
         todos = data.todos
 
         for (let todo of todos) {
-            displayNewPanier(todo, todo[0])
+            displayNewPanier(todo)
         }
     })
 }
 
 
-function displayNewPanier(text) {
-    var tableContainer = document.getElementById("panier_commande")
+function displayNewPanier(text="patate") {
+    var tableContainer = document.getElementById("panier-commande")
     var newTableElement = document.createElement("div")
 
-    newTableElement.innerHTML = text
+    newTableElement.innerText=text
+
     tableContainer.appendChild(newTableElement)
 }
-
-
-
-
 
