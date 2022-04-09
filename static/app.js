@@ -106,7 +106,7 @@ function onButtonAchat() {
 
 
 function postUser(username,password) {
-   var postUrl = "/compte_login/"
+   var postUrl = "/compte_verif/"
 
     fetch(postUrl, {
         method: "POST",
@@ -133,6 +133,7 @@ function onClickLogin() {
     sessionStorage.setItem("pseudo_user", userContainer.value)
     sessionStorage.setItem("password", passwordContainer.value)
 
+    postUser(sessionStorage.getItem("pseudo_user"),sessionStorage.getItem("password"))
     displayUser()
 }
 
@@ -143,7 +144,7 @@ function displayUser() {
     var newTableElement = document.createElement("div")
 
     newTableElement.innerHTML = sessionStorage.getItem("pseudo_user")
-
+    userContainer.innerHTML=""
     userContainer.appendChild(newTableElement)
 }
 

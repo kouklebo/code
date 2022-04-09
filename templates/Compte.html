@@ -24,6 +24,7 @@
     <a>Connectez-vous</a><br>
 
 <a>SI LA CONNECTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNER</a><br>
+    <form action ="{{ url_for('compte_verif') }}" method="post">
         <label for="Pseudo_user">Pseudo</label>
         <input type="text" name="pseudo_user" id="pseudo_user" placeholder="pseudo" /><br>
 
@@ -31,7 +32,7 @@
         <input type="text" name="password" id="password" placeholder="mot de passe" /><br>
 
         <button type="submit" onclick="onClickLogin()"  value="Se connecter ">connexion </button><br><br>
-
+</form>
 
 
 <a>SI L'INSCRIPTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNER</a><br>

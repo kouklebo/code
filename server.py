@@ -20,6 +20,19 @@ def compte():
     return render_template("Compte.html")
 
 
+@app.route("/compte_verif/", methods=['GET', 'POST'])
+def compte_verif():
+    if request.method == 'POST':
+        pseudo_user = request.form['pseudo_user']
+        password = request.form['password']
+
+        if verif_mdp(pseudo_user, password):
+            return 'Connexion reussit'
+        else:
+            return 'Compte inconnu'
+
+
+
 @app.route("/compte_login/", methods=['GET', 'POST'])
 def compte_login():
     if request.method == 'POST':

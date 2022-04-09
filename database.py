@@ -27,7 +27,6 @@ def verif_mdp(username, mdp):
     request = "SELECT pseudo, motdepasse FROM pwd;"
     cursor.execute(request)
 
-    Verification = -1
     for entry in cursor.fetchall():
         if username == entry[0] and mdp == entry[1]:
             return True
