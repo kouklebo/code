@@ -196,7 +196,7 @@ function fetchCommandeWithQuery() {
 }
 
 
-function displayNewPanier(text="patate") {
+function displayNewPanier(text) {
     var tableContainer = document.getElementById("panier-commande")
     var newTableElement = document.createElement("div")
 
