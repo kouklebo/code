@@ -11,7 +11,7 @@ SELECT * FROM data_customers;
 SELECT * FROM data_beers;
 SELECT * FROM customer_Order;
 
-CREATE TABLE  IF NOT EXISTS data_beers
+CREATE TABLE IF NOT EXISTS data_beers
 (
     id              INT AUTO_INCREMENT,
     Name            VARCHAR(100),
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS credit_Card
 );
 INSERT INTO credit_Card (CC_number, CC_expiration_date) VALUES ('1234567890',20221219);
 
-CREATE TABLE pwd(pseudo VARCHAR(50),motdepasse VARCHAR(100),PRIMARY KEY (pseudo));
+CREATE TABLE pwd(pseudo VARCHAR(50),motdepasse VARCHAR(300),PRIMARY KEY (pseudo));
 INSERT INTO pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
 
 
@@ -124,6 +124,7 @@ CREATE TABLE IF NOT EXISTS rating
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
 
 CREATE TRIGGER updateBeerAvgRating AFTER INSERT ON rating
     FOR EACH ROW UPDATE data_beers

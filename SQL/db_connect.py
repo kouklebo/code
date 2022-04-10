@@ -47,7 +47,6 @@ CreditCardRequest = "LOAD DATA INFILE %s INTO TABLE credit_card " \
                     "OPTIONALLY ENCLOSED BY '\"';"
 
 
-
 data_beersFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_beers.csv")
 data_customerFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_customers.csv")
 CreditCardFile = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CreditCard.csv")
