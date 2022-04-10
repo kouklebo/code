@@ -1,7 +1,7 @@
 import string
 import pymysql.cursors
 import csv
-
+#from passlib.hash import sha256_crypt
 
 connection = pymysql.connect(
     host="localhost", user="root", password="Password123#@!", db="GLO_2005_projet", autocommit=True)
@@ -64,6 +64,9 @@ def ajout_compte(pseudo_user, name_user, first_name_user, birth_date_user, email
     print(Verification)
     return Verification
 
+
+#def hash_password(password):
+#    return sha256_crypt.hash(password)
 
 #def passwrd(pseudo_user):
  #   request = "INSERT INTO pwd (pseudo,motdepasse) VALUES (pseudo,mdp2)"

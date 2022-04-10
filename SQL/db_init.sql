@@ -1,16 +1,13 @@
 
-SHOW DATABASES;
-
-DROP DATABASE GLO_2005_projet;
+#fonction utile pour voir son mot de passe
 CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
-SHOW TABLES;
-SELECT * FROM data_beers;
-SELECT * FROM order_item;
 SELECT * FROM data_customers;
-SELECT * FROM data_beers;
-SELECT * FROM customer_Order;
 
+#un utilisateur par defaut
+INSERT INTO pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
+
+#creer notre base de donnees rapidement selectionner tout et runner
 CREATE TABLE  IF NOT EXISTS data_beers
 (
     id              INT AUTO_INCREMENT,
@@ -23,15 +20,7 @@ CREATE TABLE  IF NOT EXISTS data_beers
     PRIMARY KEY(id)
 );
 
-INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (5,'Blanche','Brasserie patate-poil-st-prete','ipa',0.05,6.99,10);
 
-INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (6,'verte dazur','brasserie orange et frere','rousse',0.005,9.99,7);
-
-DROP TABLE data_customers;
-SELECT * FROM data_customers;
-SELECT * FROM pwd;
 CREATE TABLE IF NOT EXISTS data_customers
 (
     pseudo          VARCHAR(50) NOT NULL ,
@@ -46,6 +35,7 @@ CREATE TABLE IF NOT EXISTS data_customers
     CONSTRAINT Credit_card UNIQUE(Credit_card)
 );
 
+
 CREATE TABLE IF NOT EXISTS credit_Card
 (
     CC_number VARCHAR(16),
@@ -54,10 +44,15 @@ CREATE TABLE IF NOT EXISTS credit_Card
     FOREIGN KEY(CC_number)
         REFERENCES data_customers (Credit_card)
 );
-INSERT INTO credit_Card (CC_number, CC_expiration_date) VALUES ('1234567890',20221219);
 
-CREATE TABLE pwd(pseudo VARCHAR(50),motdepasse VARCHAR(100),PRIMARY KEY (pseudo));
-INSERT INTO pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
+
+CREATE TABLE IF NOT EXISTS pwd
+(
+    pseudo VARCHAR(50),
+    motdepasse VARCHAR(100),
+    PRIMARY KEY (pseudo)
+);
+
 
 
 CREATE TABLE IF NOT EXISTS supplier_order
@@ -87,6 +82,7 @@ CREATE TABLE IF NOT EXISTS customer_Order
         REFERENCES data_beers(id)
 );
 
+
 CREATE TABLE IF NOT EXISTS order_item
 (
     Client_id VARCHAR(50),
@@ -103,6 +99,7 @@ CREATE TABLE IF NOT EXISTS order_item
         REFERENCES customer_Order(Order_id)
 );
 
+
 CREATE TABLE IF NOT EXISTS stock
 (
     Beer_id INT,
@@ -110,6 +107,7 @@ CREATE TABLE IF NOT EXISTS stock
     FOREIGN KEY (Beer_id)
         REFERENCES data_beers(id)
 );
+
 
 CREATE TABLE IF NOT EXISTS rating
 (
@@ -125,26 +123,28 @@ CREATE TABLE IF NOT EXISTS rating
         ON UPDATE CASCADE
 );
 
+
 CREATE TRIGGER updateBeerAvgRating AFTER INSERT ON rating
     FOR EACH ROW UPDATE data_beers
     SET rating = (SELECT AVG(rating) FROM rating R WHERE R.Beer_id = NEW.Beer_id)
     WHERE id = NEW.Beer_id;
+
 
 CREATE TRIGGER updateBeerAvgRatingAfterUpdate AFTER UPDATE ON rating
     FOR EACH ROW UPDATE data_beers
     SET rating = (select AVG(rating) FROM rating R WHERE R.Beer_id = NEW.Beer_id)
     WHERE id = NEW.Beer_id;
 
+
 CREATE TRIGGER updateQuantityAfterUpdate AFTER INSERT ON customer_Order
     FOR EACH ROW UPDATE stock
     SET stock.Quantity = stock.Quantity - (SELECT Quantity FROM customer_Order C WHERE C.Beer_id = NEW.Beer_id);
+
 
 CREATE TRIGGER updateQuantityAfterUpdate2 AFTER INSERT ON supplier_order
     FOR EACH ROW UPDATE stock
     SET stock.Quantity = stock.Quantity - (SELECT Quantity FROM supplier_order S WHERE S.Product_id = NEW.Product_id);
 
-SELECT * FROM data_customers;
-SELECT * FROM pwd;
 
 DELIMITER //
 CREATE TRIGGER Creation_pwd
@@ -155,4 +155,4 @@ CREATE TRIGGER Creation_pwd
     end//
 DELIMITER ;
 
-SELECT * FROM pwd;
+
