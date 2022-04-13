@@ -12,7 +12,7 @@ CREATE TABLE  IF NOT EXISTS data_beers
 (
     id              INT AUTO_INCREMENT,
     Name            VARCHAR(100),
-    Brewery         VARCHAR(100), 
+    Brewery         VARCHAR(100),
     Style           VARCHAR(100),
     Alcohol_content FLOAT(1),
     Price           FLOAT(2),
