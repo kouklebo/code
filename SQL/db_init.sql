@@ -23,13 +23,7 @@ CREATE TABLE IF NOT EXISTS data_beers
     PRIMARY KEY(id)
 );
 
-INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (5,'Blanche','Brasserie patate-poil-st-prete','ipa',0.05,6.99,10);
 
-INSERT INTO data_beers (id, Name, Brewery, Style, Alcohol_content, Price, rating)
-VALUES (6,'verte dazur','brasserie orange et frere','rousse',0.005,9.99,7);
-
-DROP TABLE data_customers;
 SELECT * FROM data_customers;
 SELECT * FROM pwd;
 CREATE TABLE IF NOT EXISTS data_customers
@@ -54,11 +48,13 @@ CREATE TABLE IF NOT EXISTS credit_Card
     FOREIGN KEY(CC_number)
         REFERENCES data_customers (Credit_card)
 );
-INSERT INTO credit_Card (CC_number, CC_expiration_date) VALUES ('1234567890',20221219);
 
-CREATE TABLE pwd(pseudo VARCHAR(50),motdepasse VARCHAR(300),PRIMARY KEY (pseudo));
-INSERT INTO pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
-
+CREATE TABLE pwd
+(
+    pseudo VARCHAR(50),
+    motdepasse VARCHAR(300),
+    PRIMARY KEY (pseudo)
+);
 
 CREATE TABLE IF NOT EXISTS supplier_order
 (
