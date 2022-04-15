@@ -3,9 +3,6 @@ CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
 SELECT * FROM data_customers;
 
-#un utilisateur par defaut
-INSERT INTO pwd (pseudo, motdepasse) VALUES ('Jennifer1','mdp1');
-
 #creer notre base de donnees rapidement selectionner tout et runner
 CREATE TABLE  IF NOT EXISTS data_beers
 (
