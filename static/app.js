@@ -1,17 +1,8 @@
-
-function onButtonClick() {
-    var inputname = document.getElementById("pseudo_user")
-
-    var newname = inputname.value
-
-    displayNewTodo(newname)
-
-    inputname.value = ""
-
-    postTodo(newname)
-}
-
-
+/*!
+ * \brief fonction permettant d importer de la base de donnees
+ * \fn string function fetchTodos()
+ * \return string replaced string
+ */
 function fetchTodos() {
     var getUrl = "todos/"
 
@@ -26,7 +17,11 @@ function fetchTodos() {
     })
 }
 
-
+/*!
+ * \brief fonction permettant de mettre a jour la page achat
+ * \fn string function reaction()
+ * \return string dans id oneTable-container
+ */
 function reaction(){
     var tableContainer = document.getElementById("oneTable-container")
 
@@ -37,7 +32,13 @@ function reaction(){
     tableContainer.appendChild(newTableElement)
 }
 
-
+/*!
+ * \brief fonction imprime les donnees dans le magasin
+ * \fn string function displayNewTable(text,id)
+ * \param in text une chaine de string de la description de la biere
+ * \param in id un string contenant id de la biere
+ * \return string donnees de biere dans table-container
+ */
 function displayNewTable(text,id) {
     var tableContainer = document.getElementById("table-container")
     var newTableElement = document.createElement("div")
@@ -54,7 +55,11 @@ function displayNewTable(text,id) {
     tableContainer.appendChild(newTableElement)
 }
 
-
+/*!
+ * \brief fonction permettant d importer de la base de donnees les donnees du magasin
+ * \fn string function fetchTable()
+ * \return string des donnees de la biere pour le magasin
+ */
 function fetchTable() {
     var getUrl = "/tableMagasin/"
 
@@ -69,7 +74,13 @@ function fetchTable() {
     })
 }
 
-
+/*!
+ * \brief fonction permettant de stocker les donnes dans le panier du client
+ * \fn string function postAchat(beer_id,username,quantity)
+ * \param in beer_id le id de la biere
+ * \param in username le username du client
+ * \param in quantity la quantite choisit a commander
+ */
 function postAchat(beer_id,username,quantity) {
    var postUrl = "/choixPanier/"
 
@@ -90,7 +101,12 @@ function postAchat(beer_id,username,quantity) {
     })
 }
 
-
+/*!
+ * \brief fonction permettant de prendre les donnees du html a la fonction post achat
+ * quand laction du click est utilisee
+ * \fn string ronButtonAchat()
+ * \return postAchat une demande de stockage au server
+ */
 function onButtonAchat() {
     var inputElement = document.getElementById("quantity")
 
@@ -103,7 +119,12 @@ function onButtonAchat() {
         newTodoText)
 }
 
-
+/*!
+ * \brief fonction permettant de confirmer un utilisateur
+ * \fn string replaceStrings(translation, parameters)
+ * \param in username le nom de l utilisateur
+ * \param in le password de l utilisateur
+ */
 function postUser(username,password) {
    var postUrl = "/compte_verif/"
 
@@ -123,7 +144,12 @@ function postUser(username,password) {
     })
 }
 
-
+/*!
+ * \brief fonction permettant d afficher le nom de l utilisateur
+ * POURRAIS ETRE AMELIORER EN PASSANT PAR URL
+ * \fn string onClickLogin()
+ * \return objet display user qui permet d afficher un user
+ */
 function onClickLogin() {
 
     var userContainer = document.getElementById("pseudo_user")
@@ -136,7 +162,11 @@ function onClickLogin() {
     displayUser()
 }
 
-
+/*!
+ * \brief fonction permettant d afficher le user sur tous les pages html
+ * \fn string displayUser()
+ * \return string contenue dans le conteneur user-container
+ */
 function displayUser() {
     var userContainer = document.getElementById("user-container")
 
@@ -148,14 +178,13 @@ function displayUser() {
 }
 
 
-function selectType() {
-    sessionStorage.setItem("beerChoice", tableContainer.accessKey)
-    sessionStorage.setItem("beerId", tableContainer.id)
-    sessionStorage.setItem("pseudo_user", userContainer.value)
-    sessionStorage.setItem("password", passwordContainer.value)
-}
 
-
+/*!
+ * \brief fonction permettant d importer de la base de donnees les biere par categories
+ * \fn string fetchTodoWithQuery(query)
+ * \param in query le type de biere ipa rousse blonde etc.
+ * \return une fonction displayNewTable qui affiche les donnees du query
+ */
 function fetchTodoWithQuery(query) {
     var getUrl = "/magasin/style/?query=" + query
 
@@ -170,7 +199,12 @@ function fetchTodoWithQuery(query) {
     })
 }
 
-
+/*!
+ * \brief fonction permettant un tries selon la category choisit ipa, rousse, blonde etc.
+ * \fn string select_type(clicked_id)
+ * \param in l ID de lobjet clicker
+ * \return un query de la demande pour le type de biere choisit
+ */
 function select_type(clicked_id) {
     var inputElement = document.getElementById(clicked_id)
 
@@ -180,9 +214,13 @@ function select_type(clicked_id) {
     fetchTodoWithQuery(search)
 }
 
-
+/*!
+ * \brief fonction permettant d afficher les commandes du client
+ * \fn string fetchCommandeWithQuery()
+ * \return string des commandes
+ */
 function fetchCommandeWithQuery() {
-    var getUrl = "/panier_commande/?user=" + sessionStorage.getItem("pseudo_user")
+    var getUrl = "/panier_commande/"
 
     fetch(getUrl).then(function(response) {
         return response.json()
@@ -195,12 +233,26 @@ function fetchCommandeWithQuery() {
     })
 }
 
-
+/*!
+ * \brief fonction permettant d afficher les donnees du client dans le panier
+ * \fn string displayNewPanier(text)
+ * \param in text les differentes commande du client
+ * \return string replaced string
+ */
 function displayNewPanier(text) {
     var tableContainer = document.getElementById("panier-commande")
     var newTableElement = document.createElement("div")
 
-    newTableElement.innerText=text
+    newTableElement.innerHTML=text
+    newTableElement.accessKey=text
+    newTableElement.textContent=text
+    newTableElement.id=text
+    newTableElement.value=text
+    newTableElement.innerHTML=text
+    newTableElement.accessKey=text
+    newTableElement.textContent=text
+    newTableElement.id=text
+    newTableElement.value=text
 
     tableContainer.appendChild(newTableElement)
 }

@@ -1,0 +1,53 @@
+
+Html les 5 onglets -> differentes routes creer
+
+exemple d<utilisation creer un compte
+connection a un compte
+selectionner une biere avec son type
+ajouter une biere avec la quantiter
+regarder le panier
+
+
+montrer la base de donnees avec le word shema
+montrer le fichier db_init.sql comment la base de donner a ete creer
+montrer comment populer la base de donnees
+
+dire que les usager, les panier, les commande ne sont pas populer parce que l<on les cree nous meme
+cela rajoute du realisme au projet
+
+
+passer rapidement sur le javascript pas commenter aucune fonction mais dire
+au debut projet on est passer les information par variable globale
+cela nous a nuie par la suite, nous aurions du commencer le projet et
+passer les valeur par url, cele nous a empecher de hacher les mot de passe.
+Les tables et les fonctions de hachage sont creer mais ne peuvent pas etre
+utiliser pour cette raison
+
+passer rapidement sur server.py dire que les fonctions sont commenter
+si on desire plus d informations donner un exemple: route -> template. Magasin.html est creer par la fonction magasin
+
+passer database.py dire que les fonction sont commenter si on desire plus dinformation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
