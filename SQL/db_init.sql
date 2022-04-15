@@ -100,7 +100,9 @@ CREATE TABLE IF NOT EXISTS order_item
     Total_price FLOAT(3),
     PRIMARY KEY (Client_id, Order_id),
     FOREIGN KEY (Client_id)
-        REFERENCES data_customers(pseudo),
+        REFERENCES data_customers(pseudo)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     FOREIGN KEY (Beer_id)
         REFERENCES data_beers (id)
         ON UPDATE CASCADE
