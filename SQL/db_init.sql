@@ -1,4 +1,3 @@
-
 #fonction utile pour voir son mot de passe
 CREATE DATABASE GLO_2005_projet;
 use GLO_2005_projet;
@@ -24,8 +23,8 @@ CREATE TABLE  IF NOT EXISTS data_beers
 CREATE TABLE IF NOT EXISTS data_customers
 (
     pseudo          VARCHAR(50) NOT NULL ,
-    last_name       VARCHAR(500),
-    first_name      VARCHAR(500),
+    last_name       VARCHAR(50),
+    first_name      VARCHAR(100),
     birth_date      DATE,
     email           VARCHAR(500) NOT NULL,
     phone_number    DECIMAL,
@@ -43,6 +42,10 @@ CREATE TABLE IF NOT EXISTS credit_Card
     PRIMARY KEY (CC_number),
     FOREIGN KEY(CC_number)
         REFERENCES data_customers (Credit_card)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+
+
 );
 
 
@@ -65,6 +68,9 @@ CREATE TABLE IF NOT EXISTS supplier_order
     PRIMARY KEY (id),
     FOREIGN KEY (Product_id)
         REFERENCES data_beers (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+
 );
 
 
@@ -80,6 +86,8 @@ CREATE TABLE IF NOT EXISTS customer_Order
         REFERENCES data_customers(pseudo),
     FOREIGN KEY (Beer_id)
         REFERENCES data_beers(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
 
@@ -89,14 +97,19 @@ CREATE TABLE IF NOT EXISTS order_item
     Order_id INT,
     Beer_id INT,
     Quantity INT,
-    Total_price FLOAT(2),
+    Total_price FLOAT(3),
     PRIMARY KEY (Client_id, Order_id),
     FOREIGN KEY (Client_id)
         REFERENCES data_customers(pseudo),
     FOREIGN KEY (Beer_id)
-        REFERENCES data_beers (id),
+        REFERENCES data_beers (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     FOREIGN KEY (Order_id)
         REFERENCES customer_Order(Order_id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+
 );
 
 
@@ -106,6 +119,8 @@ CREATE TABLE IF NOT EXISTS stock
     Quantity INT,
     FOREIGN KEY (Beer_id)
         REFERENCES data_beers(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
 

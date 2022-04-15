@@ -220,7 +220,7 @@ function select_type(clicked_id) {
  * \return string des commandes
  */
 function fetchCommandeWithQuery() {
-    var getUrl = "/panier_commande/?user=" + sessionStorage.getItem("pseudo_user")
+    var getUrl = "/panier_commande/"
 
     fetch(getUrl).then(function(response) {
         return response.json()
@@ -243,7 +243,16 @@ function displayNewPanier(text) {
     var tableContainer = document.getElementById("panier-commande")
     var newTableElement = document.createElement("div")
 
-    newTableElement.innerText=text
+    newTableElement.innerHTML=text
+    newTableElement.accessKey=text
+    newTableElement.textContent=text
+    newTableElement.id=text
+    newTableElement.value=text
+    newTableElement.innerHTML=text
+    newTableElement.accessKey=text
+    newTableElement.textContent=text
+    newTableElement.id=text
+    newTableElement.value=text
 
     tableContainer.appendChild(newTableElement)
 }

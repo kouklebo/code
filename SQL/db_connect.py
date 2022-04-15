@@ -1,7 +1,9 @@
 import pymysql
+
 import configparser
 import pymysql.cursors
 import os
+
 
 connection = configparser.ConfigParser()
 connection.read('data.ini')
