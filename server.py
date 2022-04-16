@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import verif_mdp, select_table, ajout_compte, choix_panier, select_style,select_commande
+from database import verif_mdp, select_table, ajout_compte, choix_panier, select_style, select_commande
 
 app = Flask(__name__)
 
