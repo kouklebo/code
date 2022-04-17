@@ -177,8 +177,6 @@ function displayUser() {
     userContainer.appendChild(newTableElement)
 }
 
-
-
 /*!
  * \brief fonction permettant d importer de la base de donnees les biere par categories
  * \fn string fetchTodoWithQuery(query)
