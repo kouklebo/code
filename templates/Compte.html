@@ -23,19 +23,19 @@
     <img src="/static/orgeField.jpg" alt="Ton type" style="width:300px;height:250px;"><br>
     <a>Connectez-vous</a><br>
 
-<a>SI LA CONNECTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNER</a><br>
+<a>SI LA CONNECTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNES</a><br>
     <form action ="{{ url_for('compte_verif') }}" method="post">
         <label for="Pseudo_user">Pseudo</label>
         <input type="text" name="pseudo_user" id="pseudo_user" placeholder="pseudo" /><br>
 
         <label for="Password">Mot de passse </label>
-        <input type="text" name="password" id="password" placeholder="mot de passe" /><br>
+        <input type="password" name="password" id="password" placeholder="mot de passe" /><br>
 
         <button type="submit" onclick="onClickLogin()"  value="Se connecter ">connexion </button><br><br>
 </form>
 
 
-<a>SI L'INSCRIPTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNER</a><br>
+<a>SI L'INSCRIPTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNES</a><br>
 <form action ="{{ url_for('creation_compte') }}" method="post">
         <label for="Nom">Nom</label>
         <input type="text" name="nom_user" id="nom_user" placeholder="Nom de famille" /><br>
