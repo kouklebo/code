@@ -31,6 +31,3 @@ CREATE TRIGGER updateQuantityAfterUpdate2 AFTER INSERT ON supplier_order
 CREATE TRIGGER Creation_pwd AFTER INSERT ON data_customers
     FOR EACH ROW
       INSERT INTO pwd(pseudo, motdepasse) VALUES (NEW.pseudo,CONCAT(NEW.pseudo,ROUND( RAND() * 100 )));
-#SHOW TABLES;
-#SELECT * FROM data_beers;
-#DROP TABLE credit_Card, data_customers, data_beers, pwd, rating, order_item, customer_Order, supplier_order, stock;
