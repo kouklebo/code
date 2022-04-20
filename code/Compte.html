@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Compte</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="../static/app.js"></script>
+</head>
+<body onload="displayUser()">
+    <div class="taskbar">
+      <a class="active" href="/">Principal</a>
+      <a href="/magasin/">Magasin</a>
+      <a href="/compte/">Compte</a>
+      <a href="/panier/">Panier</a>
+      <a href="/contacter-nous/">Contacter-nous</a>
+    </div>
+
+    <a>Bonjour, </a>
+     <div id="user-container" >
+    </div>
+
+    <h1>Biere Sans Alcool</h1><br>
+    <img src="/static/orgeField.jpg" alt="Ton type" style="width:300px;height:250px;"><br>
+    <a>Connectez-vous</a><br>
+
+<a>SI LA CONNECTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNES</a><br>
+    <form action ="{{ url_for('compte_verif') }}" method="post">
+        <label for="Pseudo_user">Pseudo</label>
+        <input type="text" name="pseudo_user" id="pseudo_user" placeholder="pseudo" /><br>
+
+        <label for="Password">Mot de passse </label>
+        <input type="password" name="password" id="password" placeholder="mot de passe" /><br>
+
+        <button type="submit" onclick="onClickLogin()"  value="Se connecter ">connexion </button><br><br>
+</form>
+
+
+<a>SI L'INSCRIPTION NE FONCTIONNE PAS, MERCI DE VERIFIER LES CHAMPS RENSEIGNES</a><br>
+<form action ="{{ url_for('creation_compte') }}" method="post">
+        <label for="Nom">Nom</label>
+        <input type="text" name="nom_user" id="nom_user" placeholder="Nom de famille" /><br>
+
+        <label for="Prenom">Prenom</label>
+        <input type="text" name="prenom_user" id="prenom_user" placeholder="Prenom" /><br>
+
+        <label for="Date_de_naissance">Date de naissance</label>
+        <input type="date" name="naissance_user" id="naissance_user" placeholder="Date de naissance" /><br>
+
+        <label for="Pseudo_user">Pseudo</label>
+        <input type="text" name="pseudo_user" id="pseudo_user" placeholder="pseudo" /><br>
+
+        <label for="Courriel">Courriel </label>
+        <input type="text" name="courriel" id="courriel" placeholder="Courriel" /><br>
+
+        <label for="Numero">Numero de telephone </label>
+        <input type="number" name="num_telephone" id="num_telephone" placeholder="numero de telephone" /><br>
+
+        <label for="Adresse">Adresse </label>
+        <input type="text" name="adresse" id="adresse" placeholder="Adresse de facturation" /><br>
+
+        <label for="Carte">Numero de carte </label>
+        <input type="number" name="num_carte" id="num_carte" placeholder="Numero de carte" /><br>
+
+        <input type="submit" value = "Creation du compte "/><br><br>
+    </form>
+</body>
+</html>
+

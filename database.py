@@ -1,6 +1,7 @@
 import string
 import pymysql.cursors
 import csv
+import hashlib
 
 connection = pymysql.connect(
     host="localhost", user="root", password="Password123!", db="GLO_2005_projet", autocommit=True)
@@ -100,22 +101,33 @@ def ajout_compte(pseudo_user, name_user, first_name_user, birth_date_user, email
 
 ##
 # \brief fonction servant a proteger les renseignement des usager
-# \fn def hash_password(password):
+# \fn def hash_password(mot_de_passe_en_clair):
 # \param password le mot de passe de l usager
 # \return un mot de passe hacher
-#def hash_password(password):
-#    return sha256_crypt.hash(password)
+class HacheurDeMotDePasse:
+
+    SEL_CRYPTO = "7f99fb781a504bb69b12fc4b58ce3414"
+
+    @classmethod
+    def hacher(cls, mot_de_passe_en_clair):
+
+        return hashlib.sha512(mot_de_passe_en_clair.encode("utf-8") + cls.SEL_CRYPTO.encode("utf-8")).hexdigest()
+
+    @classmethod
+    def verifier(cls, hash_mot_de_passe, mot_de_passe_en_clair):
+
+        return cls.hacher(mot_de_passe_en_clair) == hash_mot_de_passe
 
 ##
 # \brief fonction servant a stocker les mot de passe et mot de passe hacher pour proteger les informations des usagers
 # \fn def passwrd(pseudo_user):
 # \param pseudo_user le speudonyme de l usager
 # \return vrai ou faux si l usager est verifier par la fonction de hachage
-#def passwrd(pseudo_user):
- #   request = "INSERT INTO pwd (pseudo,motdepasse) VALUES (pseudo,mdp2)"
-  #  cursor.execute(request)
-    #Verification = 1
-    #return Verification
+def passwrd(pseudo_user):
+    request = "INSERT INTO pwd (pseudo,motdepasse) VALUES (pseudo,mdp2)"
+#  cursor.execute(request)
+    Verification = 1
+    return Verification
 
 ##
 # \brief main

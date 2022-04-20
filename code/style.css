@@ -1,0 +1,99 @@
+/* Definir à 0 les paramètres par défauts et fixer la barre de navigation en haut*/
+.taskbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100%;
+}
+/* Afficher la liste en ligne */
+li {
+    display: inline;
+}
+/* Add a black background color to the top navigation */
+.taskbar {
+    background-color: #333;
+    overflow: hidden;
+}
+/* Style the links inside the navigation bar */
+.taskbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 17px;
+}
+/* Change the color of links on hover */
+.taskbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.taskbar a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+body {
+    width: 95%;
+    margin: auto;
+    min-width: 600px;
+    max-width: 3840px;
+    position: relative;
+}
+.img {
+    height: 600px;
+    width: 100%;
+    filter: brightness(85%);
+    object-fit: cover;
+}
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+.bottom:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.column {
+    width: 14%;
+    position: relative;
+    top: 40%;
+    left: 2%;
+    cursor: pointer;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.caption {
+    float: left;
+    width: 75%;
+    text-align: center;
+    position: relative;
+    left: -.9%;
+}
+.caption:hover {
+ color: #ffd966;
+}
+.swiper-button-next::after, .swiper-button-prev::after{
+  opacity: 0.7;
+  color: #ffd966;
+  transition: all 0.3s ease;
+       position: relative;
+    right: 8px;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover{
+  opacity: 1;
+  color: black;
+}
+

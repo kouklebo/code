@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title onload="session()">Magasin</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="../static/app.js"></script>
+</head>
+<body onload="fetchTable();displayUser()">
+<div class="taskbar">
+      <a class="active" href="/">Principal</a>
+      <a href="/magasin/">Magasin</a>
+      <a href="/compte/">Compte</a>
+      <a href="/panier/">Panier</a>
+      <a href="/contacter-nous/">Contacter-nous</a>
+    </div>
+<a>Bonjour, </a>
+     <div id="user-container" >
+    </div>
+<h1>Biere Sans Alcool</h1><br>
+  <p>Selectionner un type:</p>
+ <input type="radio" id="all" name="typeBeer" value="all" onclick="select_type(this.id)">
+ <label for="html">Toutes</label><br>
+ <input type="radio" id="ipa" name="typeBeer" value="ipa" onclick="select_type(this.id)">
+ <label for="html">IPA</label><br>
+ <input type="radio" id="blonde" name="typeBeer" value="blonde" onclick="select_type(this.id)">
+ <label for="html">Blonde</label><br>
+ <input type="radio" id="rousse" name="typeBeer" value="rousse" onclick="select_type(this.id)">
+ <label for="html">Rousse</label><br>
+ <input type="radio" id="noire" name="typeBeer" value="noire" onclick="select_type(this.id)">
+ <label for="html">Noire</label><br>
+ <input type="radio" id="autres" name="typeBeer" value="autres" onclick="select_type(this.id)">
+ <label for="html">Autres</label><br>
+
+
+    <div id="table-container" onclick="location.href='/Achat/';">
+
+    </div>
+
+
+</body>
+</html>

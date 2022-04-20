@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Achat</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="../static/app.js"></script>
+</head>
+    <body onload="reaction();displayUser()">
+    <div class="taskbar">
+      <a class="active" href="/">Principal</a>
+      <a href="/magasin/">Magasin</a>
+      <a href="/compte/">Compte</a>
+      <a href="/panier/">Panier</a>
+      <a href="/contacter-nous/">Contacter-nous</a>
+    </div>
+
+        <a>Bonjour, </a>
+     <div id="user-container" >
+    </div>
+
+    <label for="quantity">Selectionner la quantitee</label> <br>
+    <input type="number" id="quantity" name="quantity" min="1" max="99"><br>
+
+    <div id="oneTable-container">
+
+    </div><br>
+
+    <button type="submit" onclick="onButtonAchat()"  value="Submit">Ajouter au Panier </button><br>
+    <button type="cancel" onclick="location.href='/magasin/';" value="Cancel">Cancel </button><br>
+
+
+
+
+</body>
+</html>
